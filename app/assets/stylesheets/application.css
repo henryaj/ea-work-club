@@ -14,6 +14,32 @@
  *= require_self
  */
 
-body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,sans-serif;
+#masthead {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  color: white;
+  background-color: #0C849B;
 }
+
+#listings-main {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+#footer {
+  color: white;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+}
+
+#footer a {
+  color: white;
+  text-decoration-line: underline;
+}
+
+.color-primary-0 { color: #0C849B }
+.color-primary-1 { color: #4FA8B8 }
+.color-primary-2 { color: #2C90A3 }
+.color-primary-3 { color: #03697C }
+.color-primary-4 { color: #025261 }
