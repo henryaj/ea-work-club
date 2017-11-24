@@ -23,12 +23,17 @@
 
 #navbar {
   color: white;
-  background-color: #0C849B;
+  background-color: black;
+}
+
+.nav-link {
+  color: white;
+  text-decoration-line: underline;
 }
 
 #navbar > .nav {
   color: white;
-  background-color: #0C849B;
+  background-color: black;
 }
 
 #listings-main {

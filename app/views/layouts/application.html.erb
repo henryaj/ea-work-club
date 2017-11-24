@@ -13,6 +13,29 @@
   </head>
 
   <body>
+    <div class="container-fluid" id="navbar">
+      <nav class="navbar navbar-expand-lg">
+        <div class="navbar-collapse">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="<%= root_path %>">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <% if @user %>
+                <a class="nav-link" href="/logout">Log Out</a>
+              <% else %>
+                <a class="nav-link" href="/auth/auth0">Login</a>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mailto:henry@henrystanley.com">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
 
   </div>
     <%= yield %>
