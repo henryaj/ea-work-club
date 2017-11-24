@@ -15,14 +15,33 @@
   <div id="listings-main" class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <p>There's nothing here yet, sorry.</p>
+        <h2>Latest jobs</h2>
+        <% unless @jobs %>
+          <p>There's nothing here, sorry.</p>
+        <% else %>
+          <% @jobs.each do |job| %>
+          <ul>
+            <li><%= job.inspect %></li>
+          </ul>
+          <% end %>
+        <% end %>
       </div>
     </div>
-  </div>
-  <div id="footer" class="container-fluid">
+
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <small><a href="mailto:henry@henrystanley.com">Contact</a></small>
+        <h2>Latest jobs</h2>
+        <% unless @jobs %>
+          <p>There's nothing here, sorry.</p>
+        <% else %>
+          <% @jobs.each do |job| %>
+          <ul>
+            <li><%= job.inspect %></li>
+          </ul>
+          <% end %>
+        <% end %>
       </div>
     </div>
+
+    
   </div>

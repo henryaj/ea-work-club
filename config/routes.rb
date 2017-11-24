@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :jobs
   root "pages#index"
 
   get "/auth/oauth2/callback" => "auth0#callback"

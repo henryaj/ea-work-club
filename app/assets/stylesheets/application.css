@@ -21,21 +21,28 @@
   background-color: #0C849B;
 }
 
+#navbar {
+  color: white;
+  background-color: #0C849B;
+}
+
+#navbar > .nav {
+  color: white;
+  background-color: #0C849B;
+}
+
 #listings-main {
   padding-top: 6rem;
   padding-bottom: 6rem;
 }
 
-#footer {
+.footer {
+  color: white;
+  text-decoration-line: underline;
   color: white;
   background-color: black;
   position: absolute;
   bottom: 0;
-}
-
-#footer a {
-  color: white;
-  text-decoration-line: underline;
 }
 
 .color-primary-0 { color: #0C849B }
