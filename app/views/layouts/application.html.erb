@@ -17,10 +17,10 @@
       <nav class="navbar navbar-expand-lg">
         <div class="navbar-collapse">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="<%= root_path %>">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <% if @user %>
                 <a class="nav-link" href="/logout">Log Out</a>
               <% else %>
@@ -30,13 +30,13 @@
             <li class="nav-item">
               <a class="nav-link" href="mailto:henry@henrystanley.com">Contact</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://tinyletter.com/eaworkclub"><b>Get Updates</b></a>
+            </li>
           </ul>
         </div>
       </nav>
     </div>
-
-
-
   </div>
     <%= yield %>
   </body>
