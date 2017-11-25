@@ -1,35 +1,40 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Jobs</h1>
+<div id="masthead" class="container-fluid white-on-blue">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="display-2">Jobs</h1>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>Time commitment</th>
-      <th>Organisation</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Time commitment</th>
+            <th>Organisation</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.title %></td>
-        <td><%= job.location %></td>
-        <td><%= job.description %></td>
-        <td><%= job.time_commitment %></td>
-        <td><%= job.organisation %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Job', new_job_path %>
+        <tbody>
+          <% @jobs.each do |job| %>
+            <tr>
+              <th scope="row"><%= job.title %></th>
+              <td><%= job.location %></td>
+              <td><%= job.preview %></td>
+              <td><%= job.pretty_time_commitment %></td>
+              <td><%= job.organisation %></td>
+              <td><%= link_to 'View →', job %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

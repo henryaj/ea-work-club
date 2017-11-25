@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>Title:</strong>
-  <%= @job.title %>
-</p>
+<div id="masthead" class="container-fluid white-on-blue">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <p class="h3"><%= @job.organisation %></p>
+      <h1 class="display-4"><%= @job.title %></h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center page-section">
+    <div class="col-md-8">
+      <p>
+        <%= @job.pretty_description %>
+      </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @job.location %>
-</p>
+      <p>
+        <strong>Time commitment:</strong>
+        <%= @job.pretty_time_commitment %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @job.pretty_description %>
-</p>
-
-<p>
-  <strong>Time commitment:</strong>
-  <%= @job.pretty_time_commitment %>
-</p>
-
-<p>
-  <strong>Organisation:</strong>
-  <%= @job.organisation %>
-</p>
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+      <%= link_to '← All Jobs', jobs_path %>
+    </div>
+  </div>
+</div>

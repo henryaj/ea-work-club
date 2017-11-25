@@ -17,6 +17,9 @@
 #masthead {
   padding-top: 8rem;
   padding-bottom: 8rem;
+}
+
+.white-on-blue {
   color: white;
   background-color: #0C849B;
 }
@@ -34,6 +37,11 @@
 #navbar > .nav {
   color: white;
   background-color: black;
+}
+
+.page-section {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
 }
 
 #listings-main {
