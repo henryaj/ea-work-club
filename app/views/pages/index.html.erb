@@ -20,15 +20,19 @@
         </div>
       </div>
       <div class="col-md-8">
-        <h2>Latest jobs</h2>
         <% unless @jobs %>
+        <h2>Latest jobs</h2>
           <p>Nothing yet. Check back soon.</p>
         <% else %>
+        <h2>Latest jobs</h2>
+        <ul>
           <% @jobs.each do |job| %>
-          <ul>
-            <li><%= job.inspect %></li>
-          </ul>
+            <li class="job-listing-front">
+              <h5><a href="<%= url_for job %>"><%= job.title %></a></h5>
+              <%= job.preview %>
+            </li>
           <% end %>
+        </ul>
         <% end %>
       </div>
     </div>

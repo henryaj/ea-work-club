@@ -37,7 +37,7 @@
 }
 
 #listings-main {
-  padding-top: 6rem;
+  padding-top: 4rem;
   padding-bottom: 6rem;
 }
 
@@ -48,6 +48,15 @@
   background-color: black;
   position: absolute;
   bottom: 0;
+}
+
+li.job-listing-front {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#alpha-alert-frontpage {
+  padding-bottom: 2em;
 }
 
 .color-primary-0 { color: #0C849B }
