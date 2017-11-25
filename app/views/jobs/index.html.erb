@@ -15,7 +15,6 @@
           <tr>
             <th>Title</th>
             <th>Location</th>
-            <th>Description</th>
             <th>Time commitment</th>
             <th>Organisation</th>
             <th colspan="3"></th>
@@ -25,12 +24,10 @@
         <tbody>
           <% @jobs.each do |job| %>
             <tr>
-              <th scope="row"><%= job.title %></th>
+              <th scope="row"><%= link_to job.title, job %></th>
               <td><%= job.location %></td>
-              <td><%= job.preview %></td>
               <td><%= job.pretty_time_commitment %></td>
               <td><%= job.organisation %></td>
-              <td><%= link_to 'View →', job %></td>
             </tr>
           <% end %>
         </tbody>

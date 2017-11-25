@@ -34,6 +34,11 @@
   text-decoration-line: underline;
 }
 
+.nav-link-dark {
+  color:black;
+  text-decoration-line: underline;
+}
+
 #navbar > .nav {
   color: white;
   background-color: black;

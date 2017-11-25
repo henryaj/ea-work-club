@@ -24,7 +24,7 @@
         <h2>Latest jobs</h2>
           <p>Nothing yet. Check back soon.</p>
         <% else %>
-        <h2>Latest jobs</h2>
+        <h2>Latest jobs <small class="text-muted">or <a class="nav-link-dark" href="<%= "/jobs" %>">see all</a></small></h2>
         <ul class="no-bullet-list">
           <% @jobs.each do |job| %>
             <li class="job-listing-front">
