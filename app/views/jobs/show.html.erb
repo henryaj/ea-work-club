@@ -5,6 +5,9 @@
     <div class="col-md-8">
       <p class="h3"><%= @job.organisation %></p>
       <h1 class="display-4"><%= @job.title %></h1>
+      <% if @job.url %>
+      <br><a href="<%= @job.url %>" target="_blank" type="button" class="btn btn-dark">Apply now →</a>
+      <% end %>
     </div>
   </div>
 </div>

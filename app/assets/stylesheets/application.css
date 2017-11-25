@@ -44,6 +44,11 @@
   padding-bottom: 6rem;
 }
 
+.no-bullet-list {
+  list-style:none;
+  padding-left:0;
+}
+
 #listings-main {
   padding-top: 4rem;
   padding-bottom: 6rem;
