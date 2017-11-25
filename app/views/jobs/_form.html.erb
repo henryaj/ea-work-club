@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :time_commitment %>
-    <%= form.number_field :time_commitment, id: :job_time_commitment %>
+    <%= form.select :time_commitment, Job.time_commitments.keys, id: :time_commitment %>
   </div>
 
   <div class="field">
