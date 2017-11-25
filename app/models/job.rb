@@ -2,7 +2,7 @@ class Job < ApplicationRecord
   enum time_commitment: [:not_specified, :part_time, :full_time]
 
   def preview
-    description.lines.reject {|l| l == "\n"}.first + "..."
+    Nokogiri::HTML(pretty_description).text.truncate(100)
   end
 
   def pretty_description
