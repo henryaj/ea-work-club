@@ -19,7 +19,7 @@ module Auth0Helper
     if user_signed_in?
       @current_user = session[:userinfo]
     else
-      flash[:notice] = "You need to be logged in to do that."
+      flash[:notice] = "You need to be <a href='/auth/auth0'>logged in</a> to do that."
       redirect_back(fallback_location: root_path)
     end
   end
