@@ -19,6 +19,13 @@
   padding-bottom: 8rem;
 }
 
+#flash {
+  margin-top: 4em;
+  position: absolute;
+  z-index: 100;
+  max-width: 500px;
+}
+
 .white-on-blue {
   color: white;
   background-color: #0C849B;
