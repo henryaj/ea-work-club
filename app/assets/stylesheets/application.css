@@ -43,6 +43,13 @@
   background-color: black;
 }
 
+@media (max-width: 480px) {
+  #navbar {
+    line-height: 1;
+    font-size: 0.75rem;
+  }
+}
+
 .nav-link {
   color: white;
   text-decoration-line: underline;
