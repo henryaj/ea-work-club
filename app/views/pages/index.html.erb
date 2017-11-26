@@ -27,6 +27,11 @@
           <p>Nothing yet. Check back soon.</p>
         <% else %>
         <h2>Latest jobs <small class="text-muted">or <a class="nav-link-dark" href="<%= "/jobs" %>">see all</a></small></h2>
+        <div style="padding-top: 1em;">
+          <div class="alert alert-secondary" role="alert">
+            Currently, we only have a handful of listings. We're working to expand this. If you know of a high-impact job you think should be here, <a href="https://goo.gl/forms/tNl3Ie0KSqpZiZsH2" class="alert-link">submit it</a>.
+          </div>
+        </div>
         <ul class="no-bullet-list">
           <% @jobs.each do |job| %>
             <li class="job-listing-front">
@@ -41,9 +46,7 @@
         <h2>Latest projects</h2>
         <div style="padding-top: 1em;">
           <div class="alert alert-secondary" role="alert">
-            <h5 class="alert-heading">Coming soon.</h5>
-            <hr>
-            <a href="https://goo.gl/forms/JXyEZ9r4hOcpvyXv2" class="alert-link">Submit your project now</a> or <a href="https://tinyletter.com/eaworkclub" class="alert-link">subscribe for updates</a>!
+            Coming soon. <a href="https://goo.gl/forms/JXyEZ9r4hOcpvyXv2" class="alert-link">Submit your project now</a> or <a href="https://tinyletter.com/eaworkclub" class="alert-link">subscribe for updates</a>!
           </div>
         </div>
       </div>
