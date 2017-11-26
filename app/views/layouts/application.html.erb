@@ -47,7 +47,15 @@
               <a class="nav-link" href="mailto:henry@henrystanley.com">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://tinyletter.com/eaworkclub"><b>Get Updates</b></a>
+              <a class="nav-link"
+              tabindex="0"
+              data-container="body"
+              data-toggle="popover"
+              data-html="true"
+              data-placement="bottom"
+              title="At most, one email a week."
+              data-content="
+<div class='form-group'><form style='text-align:center;' action='https://tinyletter.com/eaworkclub' method='post' target='popupwindow' onsubmit='window.open('https://tinyletter.com/eaworkclub', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true'><p><input type='text' class='form-control' name='email' id='tlemail' placeholder='peter@singer.org' /></p><input type='hidden' value='1' name='embed'/><div class='form-group'><button class='btn btn-dark btn-sm btn-block' type='submit'>Subscribe 💌</button></div></form></div>"><b>Get Updates</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<%= new_job_path %>"><b>Submit a Job</b></a>
@@ -69,5 +77,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>$(function () {
+      $('[data-toggle="popover"]').popover()
+    })</script>
   </body>
 </html>
