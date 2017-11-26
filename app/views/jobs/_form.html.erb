@@ -1,5 +1,4 @@
-<div class="form-group">
-  <%= form_with(model: job, local: true) do |form| %>
+<%= form_with(model: job, local: true) do |form| %>
   <% if job.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
@@ -12,47 +11,52 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :job_title, class: "form-control" %>
+    <%= form.text_field :title, id: :job_title, class: "form-control", required: true,
+      placeholder: "Executive assistant for high-flying philosopher" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :location %>
-    <%= form.text_field :location, id: :job_location, class: "form-control" %>
+    <%= form.text_field :location, id: :job_location, class: "form-control", required: true,
+      placeholder: "Oxford, UK" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :job_description, class: "form-control" %>
+    <%= form.text_area :description, id: :job_description, class: "form-control", required: true,
+      placeholder: "You'll be working for a certain Oxford professor with a Scottish accent,
+ assisting with day-to-day planning and preparation of extremely strong coffee.
+ Time-wasters need not apply." %>
+    <small id="emailHelp" class="form-text text-muted">You can use Markdown for formatting.</small>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :time_commitment %>
-    <%= form.select :time_commitment, Job.time_commitments.keys, id: :time_commitment, class: "form-control" %>
+    <%= form.select :time_commitment,
+      Job.time_commitments.keys, id: :time_commitment, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :organisation %>
-    <%= form.text_field :organisation, id: :job_organisation, class: "form-control" %>
+    <%= form.text_field :organisation, id: :job_organisation, class: "form-control", required: true,
+      placeholder: "Centre for Effective Altruism" %>
   </div>
 
-  <div class="field">
-    <%= form.label "URL" %>
-    <%= form.text_field :url, id: :url, class: "form-control" %>
+  <div class="form-group">
+    <%= form.label "URL or email address" %>
+    <%= form.text_field :url, id: :url, class: "form-control", required: true,
+      placeholder: "mailto:will@cea.org" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label "Applications due by" %>
     <%= form.date_field :expiry_date, id: :expiry_date, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <br>
+    <button type="submit" class="btn btn-dark btn-lg btn-block">Submit for review 👌</button>
   </div>
-
-  <div class="field">
-      <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-  <% end %>
-</div>
+<% end %>
