@@ -1,6 +1,15 @@
-<h1>Editing Job</h1>
+<div id="masthead" class="container-fluid white-on-blue">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="display-4">Edit Job</h1>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', job: @job %>
-
-<%= link_to 'Show', @job %> |
-<%= link_to 'Back', jobs_path %>
+<div class="container-fluid">
+  <div class="row justify-content-center page-section">
+    <div class="col-md-8">
+      <%= render 'form', job: @job %>
+    </div>
+  </div>
+</div>

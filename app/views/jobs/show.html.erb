@@ -39,10 +39,12 @@
         </small>
       </p>
     </div>
-
-
     <div class="col-md-8">
-      <%= link_to '← All Jobs', jobs_path %>
+      <% if @job.owner_id == current_user_id %>
+        <%= link_to '← All Jobs', jobs_path %> | <%= link_to 'Edit', edit_job_path %>
+      <% else %>
+        <%= link_to '← All Jobs', jobs_path %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -29,7 +29,7 @@
       placeholder: "You'll be working for a certain Oxford professor with a Scottish accent,
  assisting with day-to-day planning and preparation of extremely strong coffee.
  Time-wasters need not apply." %>
-    <small id="emailHelp" class="form-text text-muted">You can use Markdown for formatting.</small>
+    <small class="form-text text-muted">You can use Markdown for formatting.</small>
   </div>
 
   <div class="form-group">
@@ -56,7 +56,13 @@
   </div>
 
   <div class="form-group">
+    <%= form.label "Your name" %>
+    <%= form.text_field :owner_name, id: :owner_name, class: "form-control", required: false, disabled: true, placeholder: current_user_name %>
+    <small class="form-text text-muted">This will be publicly visible.</small>
+  </div>
+
+  <div class="form-group">
     <br>
-    <button type="submit" class="btn btn-dark btn-lg btn-block">Submit for review 👌</button>
+    <button type="submit" class="btn btn-dark btn-lg btn-block">Publish now 👌</button>
   </div>
 <% end %>

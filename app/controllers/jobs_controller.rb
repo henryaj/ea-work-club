@@ -20,6 +20,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+    redirect_to jobs_url, notice: "You don't have permission to do that." unless @job.owner_id == current_user_id
   end
 
   # POST /jobs
@@ -66,7 +67,6 @@ class JobsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_job
       @job = Job.find(params[:id])
     end

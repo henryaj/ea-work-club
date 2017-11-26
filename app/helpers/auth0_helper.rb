@@ -3,6 +3,18 @@ module Auth0Helper
     session[:userinfo].present?
   end
 
+  def current_user_name
+    authenticate_user!
+    @current_user.fetch("info").fetch("name")
+  end
+
+  def current_user_id
+    if user_signed_in?
+      authenticate_user!
+      @current_user.fetch("uid")
+    end
+  end
+
   def authenticate_user!
     if user_signed_in?
       @current_user = session[:userinfo]
