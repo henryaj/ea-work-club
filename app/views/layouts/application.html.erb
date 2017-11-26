@@ -34,7 +34,7 @@
         <div class="navbar-collapse">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <% if @user %>
+              <% if @current_user %>
               <a class="nav-link" href="/logout">Log Out</a>
               <% else %>
               <a class="nav-link" href="/auth/auth0">Login</a>
