@@ -37,8 +37,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :url %>
+    <%= form.label "URL" %>
     <%= form.text_field :url, id: :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Applications due by" %>
+    <%= form.date_field :expiry_date, id: :expiry_date %>
   </div>
 
   <div class="actions">

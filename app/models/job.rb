@@ -1,6 +1,14 @@
 class Job < ApplicationRecord
   enum time_commitment: [:not_specified, :part_time, :full_time]
 
+  def expired?
+    if expiry_date
+      return expiry_date.past?
+    end
+
+    false
+  end
+
   def preview
     Nokogiri::HTML(pretty_description).text.truncate(85)
   end

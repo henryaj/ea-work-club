@@ -21,6 +21,12 @@
         <strong>Time commitment:</strong>
         <%= @job.pretty_time_commitment %>
       </p>
+      <% if @job.expiry_date %>
+      <p>
+        <strong>Applications due:</strong>
+        <%= @job.expiry_date %>
+      </p>
+      <% end %>
     </div>
     <div class="col-md-2">
       <p>

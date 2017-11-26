@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.all.reject(&:expired?)
   end
 
   # GET /jobs/1
@@ -70,6 +70,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :location, :description, :time_commitment, :organisation, :url)
+      params.require(:job).permit(:title, :location, :description, :time_commitment, :organisation, :url, :expiry_date)
     end
 end
