@@ -35,7 +35,8 @@
         <ul class="no-bullet-list">
           <% @jobs.each do |job| %>
             <li class="job-listing-front">
-              <h5><a href="<%= url_for job %>"><%= job.title %></a> ∙ <%= job.organisation %></h5>
+              <h5><a href="<%= url_for job %>"><%= job.title %></a></h5>
+              <h6 class="text-muted"><%= job.organisation %></h6>
               <%= job.preview %>
             </li>
           <% end %>
