@@ -38,6 +38,11 @@
   background-color: #0C849B;
 }
 
+.white-on-blue * a {
+  color: white;
+  text-decoration: underline;
+}
+
 #navbar {
   color: white;
   background-color: black;
