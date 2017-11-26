@@ -10,7 +10,7 @@
   </div>
 </div>
 <div class="container-fluid">
-  <div class="row justify-content-center page-section">
+    <div class="row justify-content-center page-section">
     <div class="col-md-6">
       <p>
         <%= sanitize @job.pretty_description %>
@@ -30,6 +30,9 @@
       <p>
         <small class="text-muted">
           <ul class="no-bullet-list">
+          <% if @job.owner_name %>
+          <li><em>Created by</em> <%= @job.owner_name %></li>
+          <% end %>
           <li><em>Submitted</em> <%= @job.created_at.to_date.to_formatted_s(:short) %></li>
           <li><em>Last updated</em> <%= @job.updated_at.to_date.to_formatted_s(:short) %></li>
         </ul>
