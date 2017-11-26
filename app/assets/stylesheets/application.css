@@ -43,6 +43,11 @@
   text-decoration: underline;
 }
 
+.white-on-blue * a.btn {
+  /* this is bad and you should feel bad */
+  text-decoration: none;
+}
+
 #navbar {
   color: white;
   background-color: black;
