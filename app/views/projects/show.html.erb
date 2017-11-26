@@ -1,0 +1,45 @@
+<div id="masthead" class="container-fluid white-on-blue">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <p class="h3"><%= @project.organisation %></p>
+      <h1 class="display-4"><%= @project.title %></h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center page-section">
+    <div class="col-md-6">
+      <p>
+        <%= sanitize @project.pretty_description %>
+      </p>
+
+      <p>
+        <strong>Organisation:</strong>
+        <%= @project.organisation %>
+      </p>
+
+      <p>
+        <strong>Contact email:</strong>
+        <a href="mailto:<%= @project.contact_email %>"><%= @project.contact_email %></a>
+      </p>
+    </div>
+    <div class="col-md-2">
+      <p>
+        <small class="text-muted">
+          <ul class="no-bullet-list">
+          <li><em>Created by</em> <%= @project.owner_name %></li>
+          <li><em>Submitted</em> <%= @project.created_at.to_date.to_formatted_s(:short) %></li>
+          <li><em>Last updated</em> <%= @project.updated_at.to_date.to_formatted_s(:short) %></li>
+        </ul>
+        </small>
+      </p>
+    </div>
+    <div class="col-md-8">
+      <% if @project.owner_id && ( @project.owner_id == current_user_id ) %>
+        <%= link_to '← All Projects', projects_path %> | <%= link_to 'Edit', edit_project_path %>
+      <% else %>
+        <%= link_to '← All Projects', projects_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
