@@ -7,7 +7,7 @@ RailsAdmin.config do |config|
   config.authenticate_with do
     authenticate_user!
 
-    redirect_to '/' unless ( current_user_db_record.admin? || current_user_id == ENV["ADMIN_USER"] )
+    redirect_to '/' unless current_user_db_record.admin?
   end
   # config.current_user_method(&:current_user)
 
