@@ -36,7 +36,7 @@
       </p>
     </div>
     <div class="col-md-8">
-      <% if @project.owner_id && ( @project.owner_id == current_user_id ) %>
+      <% if user_signed_in? && current_user_db_record.projects.include?(@project) %>
         <%= link_to '← All Projects', projects_path %> | <%= link_to 'Edit', edit_project_path %>
       <% else %>
         <%= link_to '← All Projects', projects_path %>

@@ -4,8 +4,17 @@ module Auth0Helper
   end
 
   def current_user_name
-    authenticate_user!
-    @current_user.fetch("info").fetch("name")
+    if user_signed_in?
+      authenticate_user!
+      @current_user.fetch("info").fetch("name")
+    end
+  end
+
+  def current_user_db_record
+    if user_signed_in?
+      authenticate_user!
+      User.where(uid: current_user_id).first
+    end
   end
 
   def current_user_id

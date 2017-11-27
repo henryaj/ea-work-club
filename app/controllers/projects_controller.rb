@@ -27,9 +27,9 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params.merge({
-      owner_id: @current_user.fetch("uid"),
-      owner_name: @current_user.fetch("info").fetch("name"),
-      user_id: User.where(uid: @current_user.fetch("uid")).first.id
+      owner_id: current_user_id,
+      owner_name: current_user_name,
+      user_id: current_user_db_record.id
     }))
 
     respond_to do |format|

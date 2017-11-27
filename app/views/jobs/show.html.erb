@@ -43,7 +43,7 @@
       </p>
     </div>
     <div class="col-md-8">
-      <% if @job.owner_id && ( @job.owner_id == current_user_id ) %>
+      <% if user_signed_in? && current_user_db_record.jobs.include?(@job) %>
         <%= link_to '← All Jobs', jobs_path %> | <%= link_to 'Edit', edit_job_path %>
       <% else %>
         <%= link_to '← All Jobs', jobs_path %>
