@@ -9,6 +9,14 @@ class Job < ApplicationRecord
     false
   end
 
+  def expires_today?
+    if expiry_date
+      return expiry_date.today?
+    end
+
+    false
+  end
+
   def preview
     Nokogiri::HTML(pretty_description).text.truncate(85)
   end
