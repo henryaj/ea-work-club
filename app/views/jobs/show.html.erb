@@ -12,6 +12,9 @@
 <div class="container-fluid">
     <div class="row justify-content-center page-section">
     <div class="col-md-6">
+      <% if @job.expires_today? %>
+      <p><mark>Applications for this job close today.</mark></p>
+      <% end %>
       <p>
         <%= sanitize @job.pretty_description %>
       </p>
