@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  belongs_to :user
+  
   def preview
     Nokogiri::HTML(pretty_description).text.truncate(85)
   end
