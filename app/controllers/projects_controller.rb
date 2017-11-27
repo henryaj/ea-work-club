@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :upvote]
 
   # GET /projects
   # GET /projects.json
@@ -65,6 +65,13 @@ class ProjectsController < ApplicationController
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # POST /projects/1/upvote
+  def upvote
+    @project.upvote!
+
+    redirect_back(fallback_location: root_path)
   end
 
   private

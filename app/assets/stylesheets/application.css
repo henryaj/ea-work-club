@@ -108,6 +108,11 @@ li.job-listing-front {
   padding-bottom: 1em;
 }
 
+li.project-listing-front {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
 #alpha-alert-frontpage {
   padding-bottom: 2em;
 }

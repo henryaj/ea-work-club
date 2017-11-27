@@ -9,6 +9,11 @@ class Project < ApplicationRecord
     format(description).html_safe
   end
 
+  def upvote!
+    self.upvotes = self.upvotes.to_i + 1
+    self.save!
+  end
+
   private
 
   def format(string)
