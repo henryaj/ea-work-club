@@ -1,17 +1,13 @@
 class Project < ApplicationRecord
   belongs_to :user
-  
+  acts_as_votable
+
   def preview
     Nokogiri::HTML(pretty_description).text.truncate(85)
   end
 
   def pretty_description
     format(description).html_safe
-  end
-
-  def upvote!
-    self.upvotes = self.upvotes.to_i + 1
-    self.save!
   end
 
   private

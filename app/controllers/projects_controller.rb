@@ -69,7 +69,12 @@ class ProjectsController < ApplicationController
 
   # POST /projects/1/upvote
   def upvote
-    @project.upvote!
+    # if user has already voted, remove that vote
+    if current_user_db_record.voted_for?(@project)
+      @project.unliked_by(current_user_db_record)
+    else
+      @project.liked_by(current_user_db_record)
+    end
 
     redirect_back(fallback_location: root_path)
   end
