@@ -64,7 +64,7 @@
             <li class="project-listing-front">
               <h5>
                 <a href="<%= url_for project %>"><%= project.title %></a><small><span class="text-muted">
-                – <%= project.owner_name %></span></small>
+                – <%= project.organisation.present? ? project.organisation : project.owner_name %></span></small>
                 <a href="<%= url_for project%>/upvote"><small><span class="badge badge-pill badge-primary">
                   <%= project.votes_for.size %> ★
                 </span></a></small>
