@@ -1,7 +1,9 @@
 <div id="masthead" class="container-fluid white-on-blue">
   <div class="row justify-content-center">
     <div class="col-md-8">
+      <% if @project.organisation %>
       <p class="h3"><%= @project.organisation %></p>
+      <% end %>
       <h1 class="display-4"><%= @project.title %></h1>
       <br><a href="mailto:<%= @project.contact_email %>" target="_blank" type="button" class="btn btn-dark">Get in touch</a> <a href="<%= url_for @project%>/upvote" type="button" class="btn btn-dark">★ <%= @project.votes_for.size %></a>
     </div>
@@ -14,10 +16,19 @@
         <%= sanitize @project.pretty_description %>
       </p>
 
+      <% if @project.organisation %>
       <p>
         <strong>Organisation:</strong>
         <%= @project.organisation %>
       </p>
+      <% end %>
+
+      <% if @project.budget %>
+      <p>
+        <strong>Budget:</strong>
+        $<%= @project.budget %>
+      </p>
+      <% end %>
 
       <p>
         <strong>Contact email:</strong>

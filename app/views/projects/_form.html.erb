@@ -28,6 +28,15 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :budget %>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= form.number_field :budget, id: :project_budget, class: "form-control"%>
+    </div>
+    <small class="form-text text-muted">If your project has a budget available, enter it here in USD.</small>
+  </div>
+
+  <div class="form-group">
     <%= form.label :contact_email %>
     <%= form.text_field :contact_email, id: :project_contact_email, class: "form-control", required: true %>
   </div>
