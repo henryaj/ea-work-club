@@ -22,6 +22,31 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-4 col-md-8">
+        <% unless @projects.any? %>
+        <h2>Latest projects</h2>
+        <div style="padding-top: 1em;">
+          <div class="alert alert-secondary" role="alert">
+            Coming soon. <a href="<%= new_project_path %>" class="alert-link">Submit your project now</a> or <a href="<%= new_project_path %>" class="alert-link">subscribe for updates</a>!
+          </div>
+        </div>
+        <% else %>
+        <h2>Latest projects <small class="text-muted">or <a class="nav-link-dark" href="<%= "/projects" %>">see all</a></small></h2>
+        <ul class="no-bullet-list">
+          <% @projects.each do |project| %>
+            <li class="project-listing-front">
+              <h5>
+                <a href="<%= url_for project %>"><%= project.title %></a><small><span class="text-muted">
+                – <%= project.organisation.present? ? project.organisation : project.owner_name %></span></small>
+                <a href="<%= url_for project%>/upvote"><small><span class="badge badge-pill badge-primary">
+                  <%= project.votes_for.size %> ★
+                </span></a></small>
+              </h5>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+      <div class="col-lg-4 col-md-8">
         <% unless @jobs.any? %>
         <h2>Latest jobs</h2>
           <p>Nothing yet. Check back soon.</p>
@@ -44,31 +69,6 @@
 
               <h6 class="text-muted"><%= job.organisation %></h6>
               <%= job.preview %>
-            </li>
-          <% end %>
-        </ul>
-        <% end %>
-      </div>
-      <div class="col-lg-4 col-md-8">
-        <% unless @projects.any? %>
-        <h2>Latest projects</h2>
-        <div style="padding-top: 1em;">
-          <div class="alert alert-secondary" role="alert">
-            Coming soon. <a href="<%= new_project_path %>" class="alert-link">Submit your project now</a> or <a href="<%= new_project_path %>" class="alert-link">subscribe for updates</a>!
-          </div>
-        </div>
-        <% else %>
-        <h2>Latest projects <small class="text-muted">or <a class="nav-link-dark" href="<%= "/projects" %>">see all</a></small></h2>
-        <ul class="no-bullet-list">
-          <% @projects.each do |project| %>
-            <li class="project-listing-front">
-              <h5>
-                <a href="<%= url_for project %>"><%= project.title %></a><small><span class="text-muted">
-                – <%= project.organisation.present? ? project.organisation : project.owner_name %></span></small>
-                <a href="<%= url_for project%>/upvote"><small><span class="badge badge-pill badge-primary">
-                  <%= project.votes_for.size %> ★
-                </span></a></small>
-              </h5>
             </li>
           <% end %>
         </ul>
