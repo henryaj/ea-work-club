@@ -35,7 +35,13 @@
         <ul class="no-bullet-list">
           <% @jobs.each do |job| %>
             <li class="job-listing-front">
-              <h5><a href="<%= url_for job %>"><%= job.title %></a></h5>
+              <h5>
+                <a href="<%= url_for job %>"><%= job.title %></a>
+                <% if job.expires_today? %>
+                <small><span class="badge badge-pill badge-warning">Closing today</span></small>
+                <% end %>
+              </h5>
+
               <h6 class="text-muted"><%= job.organisation %></h6>
               <%= job.preview %>
             </li>
