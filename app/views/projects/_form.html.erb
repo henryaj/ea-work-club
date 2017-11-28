@@ -17,11 +17,6 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :category %>
-    <%= form.collection_select :category_id, Category.all, :id, :name, id: :project_category, class: "form-control", required: true %>
-  </div>
-
-  <div class="form-group">
     <%= form.label :description %>
     <%= form.text_area :description, id: :project_description, class: "form-control", required: true %>
     <small class="form-text text-muted">You can use Markdown for formatting.</small>
