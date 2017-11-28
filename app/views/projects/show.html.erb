@@ -16,14 +16,14 @@
         <%= sanitize @project.pretty_description %>
       </p>
 
-      <% if @project.organisation %>
+      <% if @project.organisation.present? %>
       <p>
         <strong>Organisation:</strong>
         <%= @project.organisation %>
       </p>
       <% end %>
 
-      <% if @project.budget %>
+      <% if @project.budget.present? %>
       <p>
         <strong>Budget:</strong>
         $<%= @project.budget %>
