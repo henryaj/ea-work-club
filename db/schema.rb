@@ -10,26 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128222415) do
+ActiveRecord::Schema.define(version: 20171128221525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories_jobs", id: false, force: :cascade do |t|
-    t.bigint "job_id"
-    t.bigint "category_id"
-  end
-
-  create_table "categories_projects", id: false, force: :cascade do |t|
-    t.bigint "project_id"
-    t.bigint "category_id"
-  end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
@@ -44,7 +28,6 @@ ActiveRecord::Schema.define(version: 20171128222415) do
     t.string "owner_id"
     t.string "owner_name"
     t.bigint "user_id"
-    t.bigint "category_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -60,7 +43,6 @@ ActiveRecord::Schema.define(version: 20171128222415) do
     t.bigint "user_id"
     t.integer "upvotes"
     t.integer "budget"
-    t.bigint "category_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

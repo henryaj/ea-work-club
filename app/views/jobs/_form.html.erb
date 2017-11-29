@@ -18,11 +18,6 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :category %>
-    <%= form.collection_select :category_id, Category.all, :id, :name, id: :project_category, class: "form-control", required: true %>
-  </div>
-
-  <div class="form-group">
     <%= form.label :location %>
     <%= form.text_field :location, id: :job_location, class: "form-control", required: true,
       placeholder: "Oxford, UK" %>
