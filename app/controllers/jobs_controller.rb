@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
+    @categories = Category.all
     @jobs = Job.all.order(expiry_date: :asc).reject(&:expired?)
   end
 

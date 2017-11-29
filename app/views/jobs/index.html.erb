@@ -8,32 +8,22 @@
 </div>
 
 <div class="container-fluid">
-  <div class="row justify-content-center pt-5">
+  <div class="row justify-content-center pt-3">
     <div class="col-md-8">
-      <table class="table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Time commitment</th>
-            <th>Organisation</th>
-            <th colspan="5"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @jobs.each do |job| %>
-            <tr>
-              <td><%= '<span data-toggle="tooltip" title="Applications due today">⚠️</span>'.html_safe if job.expires_today? %></td>
-              <th scope="row"><%= link_to job.title, job %></th>
-              <td><%= job.location %></td>
-              <td><%= job.pretty_time_commitment %></td>
-              <td><%= job.organisation %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <% @categories.each do |category| %>
+        <% next unless category.jobs.any? %>
+          <h2 class="pt-5"><%= category.name %></h4>
+          <% @jobs.select { |j| j.category == category }.each do |job| %>
+          <div class="card mt-3">
+            <div class="card-body">
+              <h4 class="card-title"><%= link_to job.title, job %></h4>
+              <h6 class="card-subtitle mb-2"><%= job.organisation %></h6>
+              <h6 class="card-subtitle mb-2 text-muted"><%= job.location %></h6>
+              <p class="card-text"><%= job.preview %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
