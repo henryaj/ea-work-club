@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :categories do
+    resources :projects
+    resources :jobs
+  end
+  
   resources :projects
   resources :jobs
+
   root "pages#index"
 
   get "/about" => "pages#about"
@@ -10,4 +15,6 @@ Rails.application.routes.draw do
   get "/logout" => "logout#logout"
 
   get "/projects/:id/upvote" => "projects#upvote"
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end

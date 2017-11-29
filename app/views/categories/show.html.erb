@@ -1,0 +1,59 @@
+<div id="masthead" class="container-fluid white-on-blue">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="display-2"><%= @category.name %></h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid pt-5 pb-5">
+  <div class="row justify-content-center pb-3">
+    <div class="col-md-8">
+      <% if @category.description.present? %>
+      <blockquote class="blockquote"><%= @category.description %></blockquote>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-8">
+      <h2>All projects</h2>
+      <% unless @projects.any? %>
+      <div style="padding-top: 1em;">
+        <div class="alert alert-secondary" role="alert">
+          Coming soon. <a href="<%= new_project_path %>" class="alert-link">Submit your project now</a> or <a href="<%= new_project_path %>" class="alert-link">subscribe for updates</a>!
+        </div>
+      </div>
+      <% else %>
+      <ul class="no-bullet-list">
+        <% @projects.each do |project| %>
+          <li class="project-listing-front">
+            <h5>
+              <a href="<%= url_for project %>"><%= project.title %></a><small><span class="text-muted">
+              – <%= project.organisation.present? ? project.organisation : project.owner_name %></span></small>
+            </h5>
+          </li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+    <div class="col-lg-4 col-md-8">
+      <h2>All jobs</h2>
+      <% unless @jobs.any? %>
+        <p>Nothing yet. Check back soon.</p>
+      <% else %>
+      <ul class="no-bullet-list">
+        <% @jobs.each do |job| %>
+          <li class="job-listing-front">
+            <h5>
+              <a href="<%= url_for job %>"><%= job.title %></a><small><span class="text-muted"> – <%= job.organisation %></span></small>
+              <% if job.expires_today? %>
+              <small><span class="badge badge-pill badge-warning">Closing today</span></small>
+              <% end %>
+            </h5>
+          </li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
+</div>
