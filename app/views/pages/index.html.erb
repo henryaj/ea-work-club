@@ -12,6 +12,17 @@
       </div>
     </div>
   </div>
+  <div id="masthead-second" class="masthead-second container-fluid">
+    <div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <% @categories.each do |category| %>
+            <a href="<%= url_for category %>" class="badge badge-pill badge-dark"><%= category.name %></a> 
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="listings-main" class="container-fluid">
     <div class="row justify-content-center">
       <div id="alpha-alert-frontpage" class="col-md-8">

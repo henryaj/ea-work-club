@@ -26,6 +26,18 @@
   }
 }
 
+#masthead-second {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  #masthead-second {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
 #flash {
   margin-top: 4em;
   position: absolute;
@@ -36,6 +48,11 @@
 .white-on-blue {
   color: white;
   background-color: #0C849B;
+}
+
+.masthead-second {
+  color: white;
+  background-color: #03697C;
 }
 
 .white-on-blue * a {

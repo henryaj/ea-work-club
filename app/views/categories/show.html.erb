@@ -17,11 +17,7 @@
     <div class="col-lg-4 col-md-8">
       <h2>All projects</h2>
       <% unless @projects.any? %>
-      <div style="padding-top: 1em;">
-        <div class="alert alert-secondary" role="alert">
-          Coming soon. <a href="<%= new_project_path %>" class="alert-link">Submit your project now</a> or <a href="<%= new_project_path %>" class="alert-link">subscribe for updates</a>!
-        </div>
-      </div>
+        <p>Nothing yet. Check back soon.</p>
       <% else %>
       <ul class="no-bullet-list">
         <% @projects.each do |project| %>
