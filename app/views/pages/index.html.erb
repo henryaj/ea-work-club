@@ -63,11 +63,6 @@
           <p>Nothing yet. Check back soon.</p>
         <% else %>
         <h2>Latest jobs <small class="text-muted">or <a class="nav-link-dark" href="<%= "/jobs" %>">see all</a></small></h2>
-        <div style="padding-top: 1em;">
-          <div class="alert alert-secondary" role="alert">
-            Currently, we only have a handful of listings. We're working to expand this. If you know of a high-impact job you think should be here, <a href="<%= new_job_path %>" class="alert-link">submit it</a>.
-          </div>
-        </div>
         <ul class="no-bullet-list">
           <% @jobs.each do |job| %>
             <li class="job-listing-front">
