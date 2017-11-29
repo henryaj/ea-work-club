@@ -33,6 +33,7 @@
       <p>
         <small class="text-muted">
           <ul class="no-bullet-list">
+          <li><em>Category</em> <%= @job.category %></li>
           <% if @job.owner_name.present? %>
           <li><em>Created by</em> <%= @job.owner_name %></li>
           <% end %>

@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :user
+  belongs_to :category
   enum time_commitment: [:not_specified, :part_time, :full_time]
 
   def expired?
