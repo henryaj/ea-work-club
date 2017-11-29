@@ -39,6 +39,7 @@
       <p>
         <small class="text-muted">
           <ul class="no-bullet-list">
+          <li><em>Category</em> <%= @project.category.name %></li>
           <li><em>Created by</em> <%= @project.owner_name %></li>
           <li><em>Submitted</em> <%= @project.created_at.to_date.to_formatted_s(:short) %></li>
           <li><em>Last updated</em> <%= @project.updated_at.to_date.to_formatted_s(:short) %></li>
