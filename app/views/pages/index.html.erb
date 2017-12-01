@@ -25,13 +25,6 @@
   </div>
   <div id="listings-main" class="container-fluid">
     <div class="row justify-content-center">
-      <div id="alpha-alert-frontpage" class="col-md-8">
-        <div class="alert alert-warning" role="alert">
-          <strong>Hey!</strong> This site is super new, and things might be broken. If so, please <a href="mailto:henry@henrystanley.com">get in touch</a>! 🚀
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-center">
       <div class="col-lg-4 col-md-8">
         <% unless @projects.any? %>
         <h2>Latest projects</h2>
@@ -42,6 +35,10 @@
         </div>
         <% else %>
         <h2>Latest projects <small class="text-muted">or <a class="nav-link-dark" href="<%= "/projects" %>">see all</a></small></h2>
+        <div class="alert alert-danger mt-3" role="alert">
+          <strong>What EA project do you want to see</strong> that no-one's working on? <a href="<%= new_project_path %>">Post it now</a>.
+          <br><small>No signup needed.</small>
+        </div>
         <ul class="no-bullet-list">
           <% @projects.each do |project| %>
             <li class="project-listing-front">
