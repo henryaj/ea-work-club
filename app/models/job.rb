@@ -11,9 +11,9 @@ class Job < ApplicationRecord
     false
   end
 
-  def expires_today?
+  def expires_soon?
     if expiry_date
-      return expiry_date.today?
+      return expiry_date.days_since(-7).past?
     end
 
     false

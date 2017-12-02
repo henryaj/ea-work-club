@@ -41,8 +41,8 @@
           <li class="job-listing-front">
             <h5>
               <a href="<%= url_for job %>"><%= job.title %></a><small><span class="text-muted"> – <%= job.organisation %></span></small>
-              <% if job.expires_today? %>
-              <small><span class="badge badge-pill badge-warning">Closing today</span></small>
+              <% if job.expires_soon? %>
+              <small><span class="badge badge-pill badge-warning">Closing soon</span></small>
               <% end %>
             </h5>
           </li>
