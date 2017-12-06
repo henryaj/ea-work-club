@@ -8,9 +8,11 @@ class Auth0Controller < ApplicationController
     user_name = user_info.fetch("name")
     user_email = user_info.fetch("email")
 
-    unless User.where(:uid => user_uid).any?
-      User.create(uid: user_uid, name: user_name, email: user_email)
-    end
+    user = User.where(:uid => user_uid).first || User.new
+    user.uid = user_uid
+    user.name = user_name
+    user.email = user_email
+    user.save
 
     redirect_to root_path
   end
