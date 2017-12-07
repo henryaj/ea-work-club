@@ -9,6 +9,7 @@ class Auth0Controller < ApplicationController
     user_email = user_info.fetch("email")
 
     user = User.where(:uid => user_uid).first || User.new
+    user.uid = user_uid
     user.name = user_name
     user.email = user_email
     user.save
