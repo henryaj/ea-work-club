@@ -5,7 +5,7 @@
       <p class="h3"><%= @project.organisation %></p>
       <% end %>
       <h1 class="display-4"><%= @project.title %></h1>
-      <br><a href="mailto:<%= @project.contact_email %>" target="_blank" type="button" class="btn btn-dark">Get in touch</a> <a href="<%= url_for @project%>/upvote" type="button" class="btn btn-dark">★ <%= @project.votes_for.size %></a>
+      <% if @project.contact_email.present? %><br><a href="mailto:<%= @project.contact_email %>" target="_blank" type="button" class="btn btn-dark">Get in touch</a><% end %> <a href="<%= url_for @project%>/upvote" type="button" class="btn btn-dark">★ <%= @project.votes_for.size %></a>
     </div>
   </div>
 </div>
@@ -30,10 +30,12 @@
       </p>
       <% end %>
 
+      <% if @project.contact_email.present? %>
       <p>
         <strong>Contact email:</strong>
         <a href="mailto:<%= @project.contact_email %>"><%= @project.contact_email %></a>
       </p>
+      <% end %>
     </div>
     <div class="col-md-2">
       <p>
