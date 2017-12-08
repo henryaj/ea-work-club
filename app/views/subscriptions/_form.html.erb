@@ -1,13 +1,18 @@
+
 <%= form_for @subscription, url: {action: "create_or_update"}, html: {class: "nifty_form"} do |form| %>
   <div class="form-group">
-    <% @categories.each do |category| %>
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-          <%= check_box_tag 'category_ids[]', category.id, @subscription.categories.include?(category) -%>
-          <%= h category.name -%>
-        </label>
-      </div>
-    <% end %>
+    <div class="card-columns">
+      <% @categories.each do |category| %>
+        <div class="card">
+          <div class="form-check form-check-inline">
+            <h5 class="card-text"><label class="form-check-label">
+              <%= check_box_tag 'category_ids[]', category.id, @subscription.categories.include?(category) -%>
+              <%= h category.name -%>
+            </label></h5>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <br>

@@ -134,6 +134,12 @@ li.project-listing-front {
   padding-bottom: 2em;
 }
 
+@media (max-width: 992px) {
+  .card-columns {
+    column-count: 1;
+  }
+}
+
 .color-primary-0 { color: #0C849B }
 .color-primary-1 { color: #4FA8B8 }
 .color-primary-2 { color: #2C90A3 }
