@@ -81,5 +81,20 @@
     <script>
     window.setTimeout(function() { $("#flash-alert").alert('close'); }, 3000)
     </script>
+    <script>
+    $('input[type=checkbox]#category_ids_').click(function disableSubmitIfNoSubsSelected() {
+      var checkboxes = $('input[type=checkbox]#category_ids_')
+      var numCheckboxes = checkboxes.length;
+
+      for (var i = 0; i < numCheckboxes; i++) {
+        if (checkboxes[i].checked) {
+          $('button[type=submit].subscribe').prop("disabled",false);
+          return
+        }
+      }
+
+      $('button[type=submit].subscribe').prop("disabled",true);
+    });
+    </script>
   </body>
 </html>

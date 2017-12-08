@@ -1,6 +1,6 @@
 
 <%= form_for @subscription, url: {action: "create_or_update"}, html: {class: "nifty_form"} do |form| %>
-  <div class="form-group">
+  <div class="form-group subscription-form">
     <div class="card-columns">
       <% @categories.each do |category| %>
         <div class="card">
@@ -19,7 +19,7 @@
   <div class="row">
     <div class="col-md-8 col-sm-6">
       <div class="form-group">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">Update subscription 📬</button>
+        <button type="submit" class="subscribe btn btn-dark btn-lg btn-block" disabled="true">Update subscription 📬</button>
       </div>
     </div>
 
