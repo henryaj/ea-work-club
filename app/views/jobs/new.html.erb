@@ -3,10 +3,6 @@
   subtitle: "An open position at an EA organisation, or a role you think is likely to be high-impact.",
 } %>
 
-<div class="container-fluid">
-  <div class="row justify-content-center page-section">
-    <div class="col-md-8">
-      <%= render 'form', job: @job %>
-    </div>
-  </div>
-</div>
+<%= render layout: "shared/body" do %>
+  <%= render 'form', job: @job %>
+<% end %>

@@ -1,26 +1,15 @@
-<div id="masthead" class="container-fluid white-on-blue">
-  <div>
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <h1 class="display-4">Why?</h1>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container-fluid">
-  <div class="row justify-content-center">
-    <div class="col-md-8 pt-5">
-      <p>If you're looking to find a high-impact job, or do some high-impact volunteering, it's hard to know where to look.</p>
+<%= render partial: "shared/masthead", locals: { title: "About" } %>
 
-      <p>There's the <a href='https://80000hours.org/job-board/'>80,000 Hours job board</a> – which is great, though doesn't accept public submissions, and is skewed towards AI research openings.</p>
+<%= render layout: "shared/body" do %>
+  <p>If you're looking to find a high-impact job, or do some high-impact volunteering, it's hard to know where to look.</p>
 
-      <p>There's also the <a href='https://www.facebook.com/groups/1062957250383195/'>Effective Altruism Job Postings</a> Facebook group, which does accept public submissions, but is hard to search, and there aren't personalised alerts.</p>
+  <p>There's the <a href='https://80000hours.org/job-board/'>80,000 Hours job board</a> – which is great, though doesn't accept public submissions, and is skewed towards AI research openings.</p>
 
-      <p>There isn't a single, authoritative source for high-impact job openings and volunteer opportunities. So I decided to make one.</p>
+  <p>There's also the <a href='https://www.facebook.com/groups/1062957250383195/'>Effective Altruism Job Postings</a> Facebook group, which does accept public submissions, but is hard to search, and there aren't personalised alerts.</p>
 
-      <p>Ultimately, the site will have customisable email alerts for job postings and side projects that interest you.
-      <a href="mailto:henry@henrystanley.com">Let me know your thoughts on it.</a></p>
-      <p>—<a href="http://henrystanley.com"><strong>Henry</strong></a></p>
-    </div>
-  </div>
-</div>
+  <p>There isn't a single, authoritative source for high-impact job openings and volunteer opportunities. So I decided to make one.</p>
+
+  <p>Ultimately, the site will have customisable email alerts for job postings and side projects that interest you.
+  <a href="mailto:henry@henrystanley.com">Let me know your thoughts on it.</a></p>
+  <p>—<a href="http://henrystanley.com"><strong>Henry</strong></a></p>
+<% end %>

@@ -3,10 +3,6 @@
   subtitle: "Something you're working on that you need help with, think the EA community should be making, or just that you would find useful in your effective endeavours.",
 } %>
 
-<div class="container-fluid">
-  <div class="row justify-content-center page-section">
-    <div class="col-md-8">
-      <%= render 'form', project: @project %>
-    </div>
-  </div>
-</div>
+<%= render layout: "shared/body" do %>
+  <%= render 'form', project: @project %>
+<% end %>
