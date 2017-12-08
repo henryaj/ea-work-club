@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
-  before_action :get_user_subscription, only: [:edit, :create_or_update, :destroy]
   before_action :authenticate_user!, only: [:edit, :create_or_update, :destroy]
+  before_action :get_user_subscription, only: [:edit, :create_or_update, :destroy]
 
   def edit
     @categories = Category.all

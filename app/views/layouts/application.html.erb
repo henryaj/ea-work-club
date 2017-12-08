@@ -47,15 +47,7 @@
               <a class="nav-link" href="<%= root_path %>">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"
-              tabindex="0"
-              data-container="body"
-              data-toggle="popover"
-              data-html="true"
-              data-placement="left"
-              title="Receive our weekly email with new jobs and projects."
-              data-content="
-<div class='form-group'><form style='text-align:center;' action='https://tinyletter.com/eaworkclub' method='post' target='popupwindow' onsubmit='window.open('https://tinyletter.com/eaworkclub', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true'><p><input type='text' class='form-control' name='email' id='tlemail' placeholder='peter@singer.org' /></p><input type='hidden' value='1' name='embed'/><div class='form-group'><button class='btn btn-dark btn-sm btn-block' type='submit'>Subscribe 💌</button></div></form></div>"><b>Get Updates</b></a>
+              <a class="nav-link" href="/subscription"><b>Email Alerts</b> <span class="badge badge-pill badge-danger">New!</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<%= new_job_path %>">Submit a Job 💼</a>
