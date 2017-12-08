@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129212325) do
+ActiveRecord::Schema.define(version: 20171207221810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20171129212325) do
   create_table "categories_projects", id: false, force: :cascade do |t|
     t.bigint "project_id", null: false
     t.bigint "category_id", null: false
+  end
+
+  create_table "categories_subscriptions", id: false, force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "subscription_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -65,6 +70,15 @@ ActiveRecord::Schema.define(version: 20171129212325) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_subscriptions_on_category_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "uid"
     t.string "name"
@@ -90,4 +104,6 @@ ActiveRecord::Schema.define(version: 20171129212325) do
 
   add_foreign_key "jobs", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "subscriptions", "categories"
+  add_foreign_key "subscriptions", "users"
 end

@@ -1,0 +1,27 @@
+<%= form_for @subscription, url: {action: "create_or_update"}, html: {class: "nifty_form"} do |form| %>
+  <div class="form-group">
+    <% @categories.each do |category| %>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <%= check_box_tag 'category_ids[]', category.id, @subscription.categories.include?(category) -%>
+          <%= h category.name -%>
+        </label>
+      </div>
+    <% end %>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-md-8 col-sm-6">
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark btn-lg btn-block">Update subscription 📬</button>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="form-group">
+        <a href="/unsubscribe" class="btn btn-secondary btn-lg btn-block">Unsubscribe</a>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -3,7 +3,12 @@ Rails.application.routes.draw do
     resources :projects
     resources :jobs
   end
-  
+
+  get "/subscription" => "subscriptions#edit"
+  get "/unsubscribe" => "subscriptions#destroy"
+  post "/subscription" => "subscriptions#create_or_update"
+  patch "/subscription" => "subscriptions#create_or_update"
+
   resources :projects
   resources :jobs
 
