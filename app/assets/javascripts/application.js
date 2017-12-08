@@ -12,15 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require bootstrap
 //= require_tree .
-
-// enable bootstrap popovers + tooltips
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-
-// fade out flash messages
-window.setTimeout(function() { $("#flash-alert").alert('close'); }, 3000)
