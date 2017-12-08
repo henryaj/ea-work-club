@@ -19,7 +19,7 @@ class SubscriptionsController < ApplicationController
     end
 
     if @subscription.save
-      UserMailer.welcome_email(current_user_db_record).deliver_now if @subscription_changed
+      UserMailer.welcome_email(current_user_db_record).deliver_later if @subscription_changed
       redirect_to root_path, notice: 'Subscription was successfully updated.'
     else
       render :new

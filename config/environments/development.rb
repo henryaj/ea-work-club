@@ -29,6 +29,13 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 
+  config.active_job.queue_adapter = :async
+  config.active_job.queue_adapter = ActiveJob::QueueAdapters::AsyncAdapter.new(
+    min_threads: 1,
+    max_threads: 2 * Concurrent.processor_count,
+    idletime: 600.seconds
+  )
+
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :mailgun

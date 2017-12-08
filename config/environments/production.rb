@@ -60,8 +60,15 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "effective-jobs_#{Rails.env}"
-  config.action_mailer.perform_caching = false
 
+  config.active_job.queue_adapter = :async
+  config.active_job.queue_adapter = ActiveJob::QueueAdapters::AsyncAdapter.new(
+    min_threads: 1,
+    max_threads: 2 * Concurrent.processor_count,
+    idletime: 600.seconds
+  )
+
+  config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: Rails.application.secrets.mailgun_api_key,
