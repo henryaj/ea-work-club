@@ -55,12 +55,24 @@
 </head>
 
 <body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
       <h1>We're sorry, but something went wrong.</h1>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
   </div>
+
+  <% if @sentry_event_id %>
+    <script src="https://cdn.ravenjs.com/3.15.0/raven.min.js"></script>
+    <script>
+    Raven.showReportDialog({
+      eventId: '<%= @sentry_event_id %>',
+
+      // use the public DSN (dont include your secret!)
+      dsn: 'https://32a44704f06e481aa5900e325a85979e@sentry.io/250620'
+    });
+    </script>
+  <% end %>
+  
 </body>
 </html>
