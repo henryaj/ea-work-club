@@ -1,6 +1,6 @@
 class Auth0Controller < ApplicationController
   def callback
-    session[:userinfo] = request.env['omniauth.auth']
+    session[:userinfo] = request.env['omniauth.auth'].except("extra")
 
     user_uid = session[:userinfo].fetch("uid")
     user_info = session[:userinfo].fetch("info")
