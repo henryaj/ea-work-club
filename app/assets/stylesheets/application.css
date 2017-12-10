@@ -66,10 +66,6 @@
   text-decoration: none;
 }
 
-[type=reset], [type=submit], button, html [type=button] {
-    -webkit-appearance: none;
-}
-
 #navbar {
   color: white;
   background-color: black;
