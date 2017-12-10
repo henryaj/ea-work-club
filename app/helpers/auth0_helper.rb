@@ -13,7 +13,8 @@ module Auth0Helper
   def current_user_db_record
     if user_signed_in?
       authenticate_user!
-      User.where(uid: current_user_id).first
+
+      return find_or_create_user(current_user_id)
     end
   end
 
@@ -22,6 +23,20 @@ module Auth0Helper
       authenticate_user!
       @current_user.fetch("uid")
     end
+  end
+
+  def find_or_create_user(uid)
+    user_info = session[:userinfo].fetch("info")
+    user_name = user_info.fetch("name")
+    user_email = user_info.fetch("email")
+
+    user = User.where(:uid => uid).first || User.new
+    user.uid = uid
+    user.name = user_name
+    user.email = user_email
+    user.save
+
+    return user
   end
 
   def authenticate_user!
