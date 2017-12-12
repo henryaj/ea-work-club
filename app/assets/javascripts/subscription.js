@@ -1,7 +1,6 @@
 // ensure subscription form can't be submitted empty
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('input[type=checkbox]#category_ids_').click(function disableSubmitIfNoSubsSelected() {
-    console.log("aaaa");
     var checkboxes = $('input[type=checkbox]#category_ids_');
     var numCheckboxes = checkboxes.length;
 
