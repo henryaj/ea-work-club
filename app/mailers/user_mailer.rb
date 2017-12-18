@@ -22,4 +22,32 @@ class UserMailer < ApplicationMailer
 
     mail(to: user.email, subject: @subject)
   end
+
+  def weekly_listing_update_email(user)
+    subscription = user.subscription
+    @jobs = subscription.categories.map do |category|
+      category.jobs_created_within_last_week
+    end.flatten
+
+    @projects = subscription.categories.map do |category|
+      category.projects_created_within_last_week
+    end.flatten
+
+    return unless @jobs.present? || @projects.present?
+
+    @unsubscribe_url = "http://www.eawork.club/unsubscribe"
+    @header = "Your weekly EA Work Club update"
+    @subject = "Your weekly EA Work Club update"
+
+    @body_paragraphs = [
+      "Below are new jobs and projects posted on the EA Work Club in the last week."
+    ]
+
+    @closing_paragraphs = [
+      "All the best,",
+      "EA Work Club"
+    ]
+
+    mail(to: user.email, subject: @subject)
+  end
 end

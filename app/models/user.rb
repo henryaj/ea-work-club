@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def all_subscription_names
     subscription.categories.map(&:name)
   end
+
+  def subscribed?
+    subscription.present?
+  end
 end

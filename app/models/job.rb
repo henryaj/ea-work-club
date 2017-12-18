@@ -31,6 +31,10 @@ class Job < ApplicationRecord
     time_commitment.humanize
   end
 
+  def created_in_last_week?
+    created_at >= Date.today - 7
+  end
+
   private
 
   def format(string)
