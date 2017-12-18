@@ -1,5 +1,6 @@
 class UserMailer < ApplicationMailer
-  default from: 'hello@eawork.club'
+  default from: 'hello@eawork.club',
+          reply_to: 'henry@henrystanley.com'
 
   def welcome_email(user)
     formatted_subscription_names = user.all_subscription_names.map do |s|
