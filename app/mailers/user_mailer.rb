@@ -25,11 +25,12 @@ class UserMailer < ApplicationMailer
 
   def weekly_listing_update_email(user)
     subscription = user.subscription
-    @jobs = subscription.categories.map do |category|
+    @categories = subscription.categories
+    @jobs = @categories.map do |category|
       category.jobs_created_within_last_week
     end.flatten
 
-    @projects = subscription.categories.map do |category|
+    @projects = @categories.map do |category|
       category.projects_created_within_last_week
     end.flatten
 
@@ -44,6 +45,8 @@ class UserMailer < ApplicationMailer
     ]
 
     @closing_paragraphs = [
+      "As a reminder, you're signed up to receive alerts for the following categories:",
+      @categories.collect(&:name).join(', '),
       "All the best,",
       "EA Work Club"
     ]

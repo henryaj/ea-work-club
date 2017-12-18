@@ -79,12 +79,15 @@ background-color: #f6f6f6;
                 <% if @jobs.present? %>
                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                   <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-                    <h3>New Jobs</h3>
-                    <ul>
+                    <h2>New Jobs</h2>
+
                       <% @jobs.each do |job| %>
-    										<li><a href="<%= url_for job %>"><strong><%= job.title %></strong></a> – <%= job.organisation %> <em><%= job.category.name %></em></li>
+                        <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                          <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                            <a href="<%= url_for job %>"><strong><%= job.title %></strong></a> – <%= job.organisation %> <em>[<%= job.category.name %>]</em>
+                          </td>
+                        </tr>
                       <% end %>
-                    </ul>
                   </td>
                 </tr>
                 <% end %>
@@ -92,20 +95,29 @@ background-color: #f6f6f6;
                 <% if @projects.present? %>
                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                   <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-                    <h3>New Projects</h3>
-                    <ul>
+                    <h2>New Projects</h2>
                       <% @projects.each do |project| %>
-    										<li><a href="<%= url_for project %>"><strong><%= project.title %></strong></a><br/>★ <%= project.votes_for.size %> <em><%= project.category.name %></em></li>
+                      <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                        <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+    										  <a href="<%= url_for project %>"><strong><%= project.title %></strong></a> <em>[<%= project.category.name %>]</em> ★ <%= project.votes_for.size %>
+                        </td>
+                      </tr>
                       <% end %>
-                    </ul>
                   </td>
                 </tr>
                 <% end %>
 
+                <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                  <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                    <hr>
+                  </td>
+                </tr>
+
+
                 <% @closing_paragraphs.each do |paragraph| %>
                   <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                     <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-  										<%= paragraph.html_safe %>
+                      <%= paragraph.html_safe %>
   									</td>
   								</tr>
                 <% end %>
