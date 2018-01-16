@@ -4,6 +4,11 @@ task :send_weekly_updates => :environment do
   logger = Logger.new(STDOUT)
   logger.level = Logger::INFO
 
+  if Time.now.wday != 7
+    logger.info("Today isn't Sunday, my dudes. Exiting.")
+    return
+  end
+
   subscribed_users = User.all.select do |u|
     u.subscribed?
   end
