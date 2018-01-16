@@ -6,7 +6,7 @@ task :send_weekly_updates => :environment do
 
   if Time.now.wday != 7
     logger.info("Today isn't Sunday, my dudes. Exiting.")
-    return
+    exit
   end
 
   subscribed_users = User.all.select do |u|
