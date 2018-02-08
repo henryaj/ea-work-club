@@ -74,7 +74,8 @@ class UserMailer < ApplicationMailer
     @subject = "Your EA Work Club update"
 
     @body_paragraphs = [
-      "Below are new jobs and projects posted on the EA Work Club since #{date_since.to_s}."
+      "Below are new jobs and projects posted on the EA Work Club since #{date_since.to_s}.",
+      "Emails haven't been going out recently, so this is an unusually big one - we'll be resuming weekly updates from next week!"
     ]
 
     @closing_paragraphs = [
