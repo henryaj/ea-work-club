@@ -15,9 +15,21 @@ class Category < ApplicationRecord
     end
   end
 
+  def jobs_created_since(date)
+    jobs.select do |job|
+      job.created_at >= date
+    end
+  end
+
   def projects_created_within_last_week
     projects.select do |project|
       project.created_in_last_week?
+    end
+  end
+
+  def projects_created_since(date)
+    projects.select do |project|
+      project.created_at >= date
     end
   end
 end
