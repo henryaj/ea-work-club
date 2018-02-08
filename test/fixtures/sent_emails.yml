@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  email: MyString
+  status: MyString
+  handler_id: MyString
+  body: MyText
+
+two:
+  user: two
+  email: MyString
+  status: MyString
+  handler_id: MyString
+  body: MyText

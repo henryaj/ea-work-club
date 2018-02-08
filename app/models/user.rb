@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :jobs
   has_many :projects
+  has_many :sent_emails
   has_one :subscription, dependent: :destroy
   acts_as_voter
 

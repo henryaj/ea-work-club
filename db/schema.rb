@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207221810) do
+ActiveRecord::Schema.define(version: 20180208183815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(version: 20171207221810) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
+  create_table "sent_emails", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "email"
+    t.string "status"
+    t.string "handler_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sent_emails_on_user_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
@@ -104,6 +115,7 @@ ActiveRecord::Schema.define(version: 20171207221810) do
 
   add_foreign_key "jobs", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "sent_emails", "users"
   add_foreign_key "subscriptions", "categories"
   add_foreign_key "subscriptions", "users"
 end
