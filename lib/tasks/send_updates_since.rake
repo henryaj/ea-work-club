@@ -17,12 +17,12 @@ task :send_updates_since => :environment do
 
     subscribed_users.each do |u|
       logger.info("Sending weekly update to #{u.email}")
-      UserMailer.weekly_listing_update_email_since(u, since_date).deliver_now
+      UserMailer.listing_update_email_since(u, since_date).deliver_now
     end
   else
     User.where(admin: true).each do |u|
       logger.info("Sending weekly update to #{u.email}")
-      UserMailer.weekly_listing_update_email_since(u, since_date).deliver_now
+      UserMailer.listing_update_email_since(u, since_date).deliver_now
     end
   end
 end

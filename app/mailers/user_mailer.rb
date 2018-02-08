@@ -56,7 +56,7 @@ class UserMailer < ApplicationMailer
   end
 
 
-  def weekly_listing_update_email_since(user, date_since)
+  def listing_update_email_since(user, date_since)
     subscription = user.subscription
     @categories = subscription.categories
     @jobs = @categories.map do |category|
@@ -70,8 +70,8 @@ class UserMailer < ApplicationMailer
     return unless @jobs.present? || @projects.present?
 
     @unsubscribe_url = "http://www.eawork.club/unsubscribe"
-    @header = "Your weekly EA Work Club update"
-    @subject = "Your weekly EA Work Club update"
+    @header = "Your EA Work Club update"
+    @subject = "Your EA Work Club update"
 
     @body_paragraphs = [
       "Below are new jobs and projects posted on the EA Work Club since #{date_since.to_s}."
