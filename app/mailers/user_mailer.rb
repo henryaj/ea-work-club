@@ -27,6 +27,9 @@ class UserMailer < ApplicationMailer
   def weekly_listing_update_email(user)
     subscription = user.subscription
     @categories = subscription.categories
+
+    return unless @categories.present?
+
     @jobs = @categories.map do |category|
       category.jobs_created_within_last_week
     end.flatten
@@ -59,6 +62,9 @@ class UserMailer < ApplicationMailer
   def listing_update_email_since(user, date_since)
     subscription = user.subscription
     @categories = subscription.categories
+
+    return unless @categories.present?
+
     @jobs = @categories.map do |category|
       category.jobs_created_since(date_since)
     end.flatten
