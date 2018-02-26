@@ -3,6 +3,13 @@ module Auth0Helper
     session[:userinfo].present?
   end
 
+  def user_is_admin?
+    if user_signed_in?
+      authenticate_user!
+      current_user_db_record.admin?
+    end
+  end
+
   def current_user_name
     if user_signed_in?
       authenticate_user!

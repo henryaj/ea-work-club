@@ -50,8 +50,13 @@
       </p>
     </div>
     <div class="col-md-8">
-      <% if user_signed_in? && current_user_db_record.projects.include?(@project) %>
-        <%= link_to '← All Projects', projects_path %> | <%= link_to 'Edit', edit_project_path %> | <%= link_to 'Delete',  project_path(@project),
+      <%# TODO: this conditional is so terrible %>
+      <% if user_signed_in? && (
+        current_user_db_record.projects.include?(@project) || current_user_db_record.admin?
+      ) %>
+        <%= link_to '← All Projects', projects_path %> |
+        <%= link_to 'Edit', edit_project_path %> |
+        <%= link_to 'Delete', project_path(@project),
     data: { confirm: 'Are you sure?' }, method: :delete %>
       <% else %>
         <%= link_to '← All Projects', projects_path %>

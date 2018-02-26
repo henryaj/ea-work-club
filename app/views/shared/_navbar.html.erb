@@ -16,11 +16,16 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        <% if user_is_admin? %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin">Admin</a>
+          </li>
+        <% end %>
         <li class="nav-item active">
           <% if user_signed_in? %>
-          <a class="nav-link" href="/logout">Log Out</a>
+            <a class="nav-link" href="/logout">Log Out</a>
           <% else %>
-          <a class="nav-link" href="/auth/auth0">Log In (no registration needed)</a>
+            <a class="nav-link" href="/auth/auth0">Log In (no registration needed)</a>
           <% end %>
         </li>
       </ul>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   match "/500", :to => "errors#internal_server_error", :via => :all
 
+  resources :projects
+  resources :jobs
+
   resources :categories do
     resources :projects
     resources :jobs
@@ -11,8 +14,7 @@ Rails.application.routes.draw do
   post "/subscription" => "subscriptions#create_or_update"
   patch "/subscription" => "subscriptions#create_or_update"
 
-  resources :projects
-  resources :jobs
+
 
   root "pages#index"
 
