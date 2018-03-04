@@ -71,13 +71,6 @@
   background-color: black;
 }
 
-@media (max-width: 480px) {
-  #navbar {
-    line-height: 1;
-    font-size: 0.75rem;
-  }
-}
-
 .nav-link {
   color: white;
   text-decoration-line: underline;
@@ -93,6 +86,13 @@
   background-color: black;
 }
 
+@media (max-width: 480px) {
+  .extremity {
+    line-height: 1;
+    font-size: 0.75rem;
+  }
+}
+
 .page-section {
   padding-top: 4rem;
   padding-bottom: 6rem;
@@ -105,16 +105,23 @@
 
 #listings-main {
   padding-top: 4rem;
-  padding-bottom: 6rem;
 }
 
-.footer {
-  color: white;
+#footer {
+  color: black;
   text-decoration-line: underline;
+  background-color: #f5f5f5;
+  bottom: 0;
+}
+
+.footer-link {
+  color: #333333;
+  text-decoration-line: underline;
+}
+
+#navbar > .nav {
   color: white;
   background-color: black;
-  position: absolute;
-  bottom: 0;
 }
 
 li.job-listing-front {
@@ -136,6 +143,7 @@ li.project-listing-front {
     column-count: 1;
   }
 }
+
 
 .color-primary-0 { color: #0C849B }
 .color-primary-1 { color: #4FA8B8 }
