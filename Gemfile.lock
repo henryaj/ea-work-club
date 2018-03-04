@@ -154,6 +154,10 @@ GEM
       rack (>= 1.1)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
+    rack-tracker (1.5.0)
+      activesupport (>= 3.0)
+      rack (>= 1.4)
+      tilt (>= 1.4)
     rails (5.1.4)
       actioncable (= 5.1.4)
       actionmailer (= 5.1.4)
@@ -270,6 +274,7 @@ DEPENDENCIES
   omniauth-auth0 (~> 2.0.0)
   pg
   puma (~> 3.7)
+  rack-tracker
   rails (~> 5.1.4)
   rails_admin (~> 1.2)
   sass-rails (~> 5.0)

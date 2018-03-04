@@ -101,4 +101,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.middleware.use(Rack::Tracker) do
+    handler :google_analytics, { tracker: ENV['GOOGLE_ANALYTICS_ID'] }
+  end
 end
