@@ -1,4 +1,5 @@
-Category.create(name: "Other")
+c1 = Category.create(name: "Other", description: "Anything you want it to be.")
+c2 = Category.create(name: "Environmentalism", description: "Saving the world, one seal at a time.")
 
 u1 = User.create(uid: "foo")
 u2 = User.create(uid: "bar")
@@ -9,12 +10,40 @@ Job.create(
     "to assist with drafting of strategy documents and contingency planning for when " +
     "it all goes wrong.\n\n###Key skills\n\n* working in teams\n* good spelling\n* concealed-carry licence" +
     "\n\n**No time-wasters please.**",
-  category: Category.last,
+  category: c1,
   time_commitment: 0,
   url: "http://apple.com",
   owner_name: "John Appleseed",
   owner_id: "foo",
   user: u1
+)
+
+Job.create(
+  title: "Brian Tomasik genuflector",
+  description: "FHI seeks a human with sophisticated knowledge of AI systems " +
+    "to assist with drafting of strategy documents and contingency planning for when " +
+    "it all goes wrong.\n\n###Key skills\n\n* working in teams\n* good spelling\n* concealed-carry licence" +
+    "\n\n**No time-wasters please.**",
+  category: c2,
+  time_commitment: 0,
+  url: "http://apple.com",
+  owner_name: "John Appleseed",
+  owner_id: "foo",
+  user: u1
+)
+
+Job.create(
+  title: "Will MacAskill impersonator",
+  description: "FHI seeks a human with sophisticated knowledge of AI systems " +
+    "to assist with drafting of strategy documents and contingency planning for when " +
+    "it all goes wrong.\n\n###Key skills\n\n* working in teams\n* good spelling\n* concealed-carry licence" +
+    "\n\n**No time-wasters please.**",
+  category: c1,
+  time_commitment: 0,
+  url: "http://apple.com",
+  owner_name: "Steven Toast",
+  owner_id: "foo",
+  user: u2
 )
 
 Project.create(
