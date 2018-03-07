@@ -1,10 +1,11 @@
 class Job < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_one :location
-  enum time_commitment: [:not_specified, :part_time, :full_time]
 
-  geocoded_by :full_street_address
+  geocoded_by :location
+  after_validation :geocode
+
+  enum time_commitment: [:not_specified, :part_time, :full_time]
 
   def expired?
     if expiry_date
