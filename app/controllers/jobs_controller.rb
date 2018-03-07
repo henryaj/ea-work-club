@@ -5,7 +5,12 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @categories = Category.all
+    if params[:category_id]
+      @categories = Category.where(id: params[:category_id])
+    else
+      @categories = Category.all
+    end
+
     @jobs = Job.all.order(expiry_date: :asc).reject(&:expired?)
   end
 
@@ -69,12 +74,13 @@ class JobsController < ApplicationController
   end
 
   private
-    def set_job
-      @job = Job.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def job_params
-      params.require(:job).permit(:title, :location, :description, :time_commitment, :organisation, :url, :expiry_date, :category_id)
-    end
+  def set_job
+    @job = Job.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def job_params
+    params.require(:job).permit(:title, :location, :description, :time_commitment, :organisation, :url, :expiry_date, :category_id)
+  end
 end
