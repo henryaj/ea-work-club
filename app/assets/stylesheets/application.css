@@ -112,6 +112,7 @@
   text-decoration-line: underline;
   background-color: #f5f5f5;
   bottom: 0;
+  position: absolute;
 }
 
 .footer-link {
