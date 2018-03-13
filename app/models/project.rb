@@ -3,6 +3,9 @@ class Project < ApplicationRecord
   belongs_to :category
   acts_as_votable
 
+  include PgSearch
+  multisearchable against: %i(title organisation description owner_name)
+
   def preview
     Nokogiri::HTML(pretty_description).text.truncate(85)
   end

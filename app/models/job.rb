@@ -5,6 +5,9 @@ class Job < ApplicationRecord
   geocoded_by :location
   after_validation :geocode
 
+  include PgSearch
+  multisearchable against: %i(title organisation description owner_name)
+
   enum time_commitment: [:not_specified, :part_time, :full_time]
 
   def expired?
