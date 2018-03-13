@@ -18,6 +18,10 @@ class Project < ApplicationRecord
     created_at >= Date.today - 7
   end
 
+  def expired?
+    false # TODO
+  end
+
   private
 
   def format(string)
