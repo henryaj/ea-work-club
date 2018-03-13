@@ -14,7 +14,11 @@
     <div class="row justify-content-center page-section">
     <div class="col-md-6">
       <% if @job.expires_soon? %>
-      <p><mark>Applications for this job close soon.</mark></p>
+        <% if @job.expired? %>
+        <p><mark>Applications for this job may be closed.</mark></p>
+        <% else %>
+        <p><mark>Applications for this job close soon.</mark></p>
+        <% end %>
       <% end %>
       <p>
         <%= sanitize @job.pretty_description %>
