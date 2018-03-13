@@ -145,6 +145,15 @@ li.project-listing-front {
   }
 }
 
+h1.text-muted a,
+h2.text-muted a,
+h3.text-muted a,
+h4.text-muted a,
+h5.text-muted a,
+h6.text-muted a {
+  color: gray;
+}
+
 
 .color-primary-0 { color: #0C849B }
 .color-primary-1 { color: #4FA8B8 }
