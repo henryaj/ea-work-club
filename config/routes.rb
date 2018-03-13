@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post "/subscription" => "subscriptions#create_or_update"
   patch "/subscription" => "subscriptions#create_or_update"
 
-
+  get "/search" => "pages#search"
 
   root "pages#index"
 

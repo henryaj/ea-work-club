@@ -12,17 +12,27 @@
       </div>
     </div>
   </div>
+
   <div id="masthead-second" class="masthead-second container-fluid">
-    <div>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <% @categories.each do |category| %>
-            <a href="<%= url_for category %>" class="badge badge-pill badge-dark"><%= category.name %></a> 
-          <% end %>
-          <a href="<%= url_for :controller => 'categories', :action => 'index' %>" class="badge badge-pill badge-light">Everything</a>
-        </div>
+    <div class="row justify-content-center ">
+      <div class="col-md-8">
+        <% @categories.each do |category| %>
+          <a href="<%= url_for category %>" class="badge badge-pill badge-dark"><%= category.name %></a>
+        <% end %>
+        <a href="<%= url_for :controller => 'categories', :action => 'index' %>" class="badge badge-pill badge-light">Everything</a>
       </div>
     </div>
+  </div>
+
+  <div id="masthead-third" class="masthead-third container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form action="/search" action="get" class="input-group input-group-sm">
+          <input type="text" name="query" class="form-control" aria-describedby="inputGroup-sizing-sm" placeholder="Type a search query, then hit Enter">
+        </form>
+      </div>
+    </div>
+
   </div>
   <div id="listings-main" class="container-fluid">
     <div class="row justify-content-center">
