@@ -27,13 +27,15 @@
   }
 }
 
-#masthead-second {
+#masthead-second,
+#masthead-third {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
 
 @media (max-width: 480px) {
-  #masthead-second {
+  #masthead-second,
+  #masthead-third {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
@@ -54,6 +56,11 @@
 .masthead-second {
   color: white;
   background-color: #03697C;
+}
+
+.masthead-third {
+  color: white;
+  background-color: #014551;
 }
 
 .white-on-blue * a {

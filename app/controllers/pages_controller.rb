@@ -10,4 +10,15 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def search
+    @query = html_escape(params["query"])
+    @results = PgSearch.multisearch(@query)
+
+    @results = @results.map do |result|
+      result.searchable
+    end
+
+    @expired_results, @results = @results.partition { |r| r.expired? }
+  end
 end
