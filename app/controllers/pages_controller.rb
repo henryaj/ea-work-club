@@ -13,12 +13,15 @@ class PagesController < ApplicationController
 
   def search
     @query = html_escape(params["query"])
-    @results = PgSearch.multisearch(@query)
+    results = PgSearch.multisearch(@query)
+    results = results.map { |r| r.searchable }
+    @expired_results, @results = results.partition { |r| r.expired? }
+  end
 
-    @results = @results.map do |result|
-      result.searchable
-    end
-
-    @expired_results, @results = @results.partition { |r| r.expired? }
+  def location_search
+    @query = html_escape(params["query"])
+    @radius = 50 # miles
+    results = Job.near(@query, @radius)
+    @expired_results, @results = results.partition { |r| r.expired? }
   end
 end
