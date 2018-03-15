@@ -19,7 +19,8 @@
         <% @categories.each do |category| %>
           <a href="<%= url_for category %>" class="badge badge-pill badge-dark"><%= category.name %></a>
         <% end %>
-        <a href="<%= url_for :controller => 'categories', :action => 'index' %>" class="badge badge-pill badge-light">Everything</a>
+        <a href="<%= url_for :controller => 'jobs', :action => 'index', :params => {remote: true}  %>" class="badge badge-pill badge-light">Remote Only</a>
+        <a href="<%= url_for :controller => 'categories', :action => 'index' %>" class="badge badge-pill badge-info">Everything</a>
       </div>
     </div>
   </div>
