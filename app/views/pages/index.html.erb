@@ -27,10 +27,21 @@
 
   <div id="masthead-third" class="masthead-third container-fluid">
     <div class="row justify-content-center">
-      <div class="col-md-8">
-        <form action="/search" action="get" class="input-group input-group-sm">
-          <input type="text" name="query" class="form-control" aria-describedby="inputGroup-sizing-sm" placeholder="Type a search query, then hit Enter">
-        </form>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Search</label>
+          <form action="/search" action="get" class="input-group input-group-sm">
+            <input type="text" name="query" class="form-control" aria-describedby="inputGroup-sizing-sm" placeholder="Type a search query, then hit Enter">
+          </form>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Find jobs near...</label>
+          <form action="/locationsearch" action="get" class="input-group input-group-sm">
+            <input type="text" name="query" class="form-control" aria-describedby="inputGroup-sizing-sm" placeholder="London, UK">
+          </form>
+        </div>
       </div>
     </div>
 
