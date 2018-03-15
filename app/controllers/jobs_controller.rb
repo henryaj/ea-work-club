@@ -35,7 +35,8 @@ class JobsController < ApplicationController
     @job = Job.new(job_params.merge({
       owner_id: current_user_id,
       owner_name: current_user_name,
-      user_id: current_user_db_record.id
+      user_id: current_user_db_record.id,
+      remote: job_params[:remote]
     }))
 
     respond_to do |format|
@@ -89,7 +90,8 @@ class JobsController < ApplicationController
       :organisation,
       :url,
       :expiry_date,
-      :category_id
+      :category_id,
+      :remote
     )
   end
 end
