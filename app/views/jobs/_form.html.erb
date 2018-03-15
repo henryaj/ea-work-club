@@ -22,11 +22,18 @@
     <%= form.collection_select :category_id, Category.all, :id, :name, id: :project_category, class: "form-control", required: true %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :location %>
-    <%= form.text_field :location, id: :job_location, class: "form-control", required: true,
-      placeholder: "Oxford, UK" %>
+  <div class="form-row">
+    <div class="form-group col-md-9">
+      <%= form.label :location %>
+      <%= form.text_field :location, id: :job_location, class: "form-control", placeholder: "Oxford, UK" %>
+    </div>
+
+    <div class="form-group col-md-3 justify-content-center">
+      <%= form.label :remote_okay? %>
+      <%= form.check_box :remote, id: :job_remote, class: "form-control" %>
+    </div>
   </div>
+
 
   <div class="form-group">
     <%= form.label :description %>

@@ -3,10 +3,16 @@
     <div class="col-md-8">
       <p class="h3"><%= @job.organisation %></p>
       <h1 class="display-4"><%= @job.title %></h1>
-      <p class="h4"><%= @job.location %></p>
+      <% if @job.location.present? %>
+        <p class="h4"><%= @job.location %></p>
+      <% elsif @job.remote? %>
+        <p class="h4"><i>Remote</i></p>
+      <% end %>
+
       <% if @job.url %>
       <br><a href="<%= @job.url %>" target="_blank" type="button" class="btn btn-dark">Apply now →</a>
       <% end %>
+
     </div>
   </div>
 </div>

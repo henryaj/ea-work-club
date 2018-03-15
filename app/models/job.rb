@@ -18,6 +18,10 @@ class Job < ApplicationRecord
     false
   end
 
+  def remote?
+    remote
+  end
+
   def expires_soon?
     if expiry_date
       return expiry_date.days_since(-7).past?
