@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
     date_sorted_projects = Project.all.first(20)
 
-    @projects = date_sorted_projects.sort_by {|p| p.votes_for.size}.reverse
+    @projects = date_sorted_projects.reverse
   end
 
   def about

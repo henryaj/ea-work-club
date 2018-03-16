@@ -9,6 +9,7 @@
             <th>Title</th>
             <th>Organisation</th>
             <th>Submitted</th>
+            <th>Upvotes</th>
           </tr>
         </thead>
 
@@ -18,6 +19,7 @@
               <th scope="row"><%= link_to project.title, project %></th>
               <td><%= project.organisation %></td>
               <td><%= project.created_at.to_date.to_formatted_s(:short) %></td>
+              <td><%= project.votes_for.size %>★</td>
             </tr>
           <% end %>
         </tbody>
