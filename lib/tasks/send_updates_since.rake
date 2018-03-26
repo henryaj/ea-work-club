@@ -21,6 +21,7 @@ task :send_updates_since => :environment do
     end
   else
     User.where(admin: true).each do |u|
+      next unless u.subscribed?
       logger.info("Sending weekly update to #{u.email}")
       UserMailer.listing_update_email_since(u, since_date).deliver_now
     end
