@@ -77,11 +77,9 @@ class UserMailer < ApplicationMailer
 
     @unsubscribe_url = "http://www.eawork.club/unsubscribe"
     @header = "Your EA Work Club update"
-    @subject = "EA Work Club - now with location search + remote jobs"
+    @subject = "Your EA Work Club update"
 
     @body_paragraphs = [
-      "New features! You can now search for jobs, both by name and by location.",
-      "There's also a page just for remote jobs, if you're only looking for remote work.",
       "Below are new jobs and projects posted on the EA Work Club since #{date_since.to_s}."
     ]
 
