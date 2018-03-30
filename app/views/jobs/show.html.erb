@@ -10,7 +10,7 @@
       <% end %>
 
       <% if @job.url %>
-      <br><a href="<%= @job.url %>" target="_blank" type="button" class="btn btn-dark">Apply now →</a>
+      <br><a href="<%= @job.url %>" target="_blank" type="button" class="btn btn-dark" id="outbound">Apply now →</a>
       <% end %>
 
     </div>
@@ -66,3 +66,15 @@
     </div>
   </div>
 </div>
+<script>
+var a = document.getElementById("outbound");
+    a.onclick = function() {
+      ga('send', 'event', {
+        eventCategory: 'Job outbound click',
+        eventAction: 'click',
+          eventLabel: "job-<%= @job.id %>",
+        transport: 'beacon'
+      });
+      return false;
+    }
+</script>
