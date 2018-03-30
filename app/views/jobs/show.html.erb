@@ -75,6 +75,6 @@ var a = document.getElementById("outbound");
           eventLabel: "job-<%= @job.id %>",
         transport: 'beacon'
       });
-      return false;
+      return true; // tell the browser to follow the link
     }
 </script>
