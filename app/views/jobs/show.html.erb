@@ -72,8 +72,7 @@ var a = document.getElementById("outbound");
       ga('send', 'event', {
         eventCategory: 'Job outbound click',
         eventAction: 'click',
-          eventLabel: "job-<%= @job.id %>",
-        transport: 'beacon'
+        eventLabel: "job-<%= @job.id %>",
       });
       return true; // tell the browser to follow the link
     }
