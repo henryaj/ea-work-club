@@ -58,6 +58,7 @@
     <%= form.label "URL or email address" %>
     <%= form.text_field :url, id: :url, class: "form-control", required: true,
       placeholder: "mailto:will@cea.org" %>
+    <small class="form-text text-muted">If you put an email address here, please make sure it starts with <code>mailto:</code></small>
   </div>
 
   <div class="form-group">
