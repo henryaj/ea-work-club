@@ -22,6 +22,12 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    if user_signed_in? &&
+      (current_user_db_record.jobs.include?(@job) || current_user_db_record.admin? )
+      @show_edit_controls = true
+    else
+      @show_edit_controls = false
+    end
   end
 
   # GET /jobs/new

@@ -11,6 +11,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    if user_signed_in? &&
+      (current_user_db_record.projects.include?(@project) || current_user_db_record.admin? )
+      @show_edit_controls = true
+    else
+      @show_edit_controls = false
+    end
   end
 
   # GET /projects/new
