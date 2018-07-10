@@ -161,6 +161,9 @@ h6.text-muted a {
   color: gray;
 }
 
+.tooltip-inner, .tooltip-arrow {
+  background-color: #4FA8B8 !important;
+}
 
 .color-primary-0 { color: #0C849B }
 .color-primary-1 { color: #4FA8B8 }
