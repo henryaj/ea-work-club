@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :upvote]
+  before_action :check_owner_logged_in, only: [:edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -11,8 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    if user_signed_in? &&
-      (current_user_db_record.projects.include?(@project) || current_user_db_record.admin? )
+    if owner_logged_in?
       @show_edit_controls = true
     else
       @show_edit_controls = false
@@ -26,7 +26,6 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    redirect_to projects_url, notice: "You don't have permission to do that." unless @project.owner_id == current_user_id
   end
 
   # POST /projects
@@ -86,13 +85,23 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:title, :description, :organisation, :contact_email, :budget, :category_id)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_params
+    params.require(:project).permit(:title, :description, :organisation, :contact_email, :budget, :category_id)
+  end
+
+  def check_owner_logged_in
+    unless owner_logged_in?
+      redirect_to projects_url, notice: "You don't have permission to do that."
     end
+  end
+
+  def owner_logged_in?
+    @project.owner_id == current_user_id || user_is_admin?
+  end
 end

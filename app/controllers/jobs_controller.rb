@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_owner_logged_in, only: [:edit, :update, :destroy]
 
   # GET /jobs
   # GET /jobs.json
@@ -22,8 +23,7 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    if user_signed_in? &&
-      (current_user_db_record.jobs.include?(@job) || current_user_db_record.admin? )
+    if owner_logged_in?
       @show_edit_controls = true
     else
       @show_edit_controls = false
@@ -37,7 +37,6 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
-    redirect_to jobs_url, notice: "You don't have permission to do that." unless @job.owner_id == current_user_id
   end
 
   # POST /jobs
@@ -104,5 +103,15 @@ class JobsController < ApplicationController
       :category_id,
       :remote
     )
+  end
+
+  def check_owner_logged_in
+    unless owner_logged_in?
+      redirect_to jobs_url, notice: "You don't have permission to do that."
+    end
+  end
+
+  def owner_logged_in?
+    @job.owner_id == current_user_id || user_is_admin?
   end
 end
