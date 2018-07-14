@@ -78,7 +78,13 @@ background-color: #f6f6f6;
 
                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                   <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-                    <center><p><a href="<%= @renewal_link %>">Click here to renew your listing</a></p></center>
+                      <% @listings.each do |listing| %>
+                      <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                        <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+    										  <a href="<%= url_for listing %>"><em><%= listing.title %></em></a> – <a href="<%= url_for listing %>/renew">Renew</a>
+                        </td>
+                      </tr>
+                      <% end %>
                   </td>
                 </tr>
 

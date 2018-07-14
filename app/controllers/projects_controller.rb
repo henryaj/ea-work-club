@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :upvote, :renew]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :upvote]
-  before_action :check_owner_logged_in, only: [:edit, :update, :destroy]
+  before_action :check_owner_logged_in, only: [:edit, :update, :destroy, :renew]
 
   # GET /projects
   # GET /projects.json

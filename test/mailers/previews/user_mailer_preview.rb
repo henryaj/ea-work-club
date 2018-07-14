@@ -8,6 +8,6 @@ class UserMailerPreview < ActionMailer::Preview
   end
   
   def listing_renewal_reminder
-    UserMailer.listing_renewal_reminder(User.last, User.last.jobs.last)
+    UserMailer.listing_renewal_reminder(User.last, User.last.jobs)
   end
 end

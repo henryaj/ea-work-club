@@ -88,7 +88,7 @@ class UserMailer < ApplicationMailer
     mail(to: user.email, subject: @subject)
   end
 
-  def listing_renewal_reminder(user, listing)
+  def listing_renewal_reminder(user, listings)
     # see if the user has any listings
     # for each listing, if it is unexpired
     # AND if it has been up for > 2 months
@@ -102,11 +102,10 @@ class UserMailer < ApplicationMailer
     @body_paragraphs = [
       "Hi!",
       "We've got a new policy at EA Work Club to make sure all the listings are as fresh as can be – we'll be expiring listings after 60 days.",
-      "Your listing \"#{listing.title}\" has been on EA Work Club for #{listing.last_renewed_ago_days} days.",
-      "If you want to keep it live on EA Work Club, please click the link below to renew it for another 60 days. Otherwise, please ignore this email and your listing will be archived in a week."
+      "The following listings have been up for longer than 60 days. Click on any listing to renew it for another 60 days."
     ]
 
-    @renewal_link = url_for(listing) + "/renew"
+    @listings = listings
 
     mail(to: user.email, subject: @subject)
   end
