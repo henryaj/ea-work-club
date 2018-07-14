@@ -100,8 +100,10 @@ class UserMailer < ApplicationMailer
     @subject = "EA Work Club - listing expiring soon"
 
     @body_paragraphs = [
-      "Your listing \"#{listing.title}\" has been on EA Work Club for #{listing.last_renewed_ago_days} days and will expire next week.",
-      "If you want to keep it live on EA Work Club, please click the link below. Otherwise, please ignore this email and your listing will be archived."
+      "Hi!",
+      "We've got a new policy at EA Work Club to make sure all the listings are as fresh as can be – we'll be expiring listings after 60 days.",
+      "Your listing \"#{listing.title}\" has been on EA Work Club for #{listing.last_renewed_ago_days} days.",
+      "If you want to keep it live on EA Work Club, please click the link below to renew it for another 60 days. Otherwise, please ignore this email and your listing will be archived in a week."
     ]
 
     @renewal_link = url_for(listing) + "/renew"

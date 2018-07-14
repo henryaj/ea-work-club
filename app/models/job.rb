@@ -10,6 +10,10 @@ class Job < ApplicationRecord
 
   enum time_commitment: [:not_specified, :part_time, :full_time]
 
+  def self.displayable
+    all.order(expiry_date: :asc).reject(&:expired?)
+  end
+
   def expired?
     if expiry_date
       return expiry_date.past?
