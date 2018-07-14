@@ -99,13 +99,13 @@ class UserMailer < ApplicationMailer
     @header = "EA Work Club - listing expiring soon"
     @subject = "EA Work Club - listing expiring soon"
 
+    @listings = listings
+
     @body_paragraphs = [
       "Hi!",
       "We've got a new policy at EA Work Club to make sure all the listings are as fresh as can be – we'll be expiring listings after 60 days.",
-      "The following listings have been up for longer than 60 days. Click on any listing to renew it for another 60 days."
+      "The following listings have been up for longer than 60 days. Click on the 'Renew' link beside any listing to renew it for another 60 days."
     ]
-
-    @listings = listings
 
     mail(to: user.email, subject: @subject)
   end
