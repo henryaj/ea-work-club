@@ -16,7 +16,9 @@ task :send_listing_renewal_reminders => :environment do
   users.each do |u|
     expiring_listings = u.jobs_needing_renewal + u.projects_needing_renewal
 
-    logger.info("Sending renewal reminder to #{u.email}")
-    UserMailer.listing_renewal_reminder(u, expiring_listings).deliver_now
+    if expiring_listings.any?
+      logger.info("Sending renewal reminder to #{u.email}")
+      UserMailer.listing_renewal_reminder(u, expiring_listings).deliver_now
+    end
   end
 end

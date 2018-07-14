@@ -109,4 +109,16 @@ class UserMailer < ApplicationMailer
 
     mail(to: user.email, subject: @subject)
   end
+
+  def generic_email(user, subject, body_paragraphs)
+    @unsubscribe_url = "http://www.eawork.club/unsubscribe"
+    @closing_paragraphs = []
+
+    @header = subject
+    @subject = subject
+
+    @body_paragraphs = body_paragraphs
+
+    mail(to: user.email, subject: @subject)
+  end
 end
