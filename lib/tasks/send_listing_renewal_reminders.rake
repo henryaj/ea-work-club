@@ -8,7 +8,7 @@ task :send_listing_renewal_reminders => :environment do
   live = ENV["LIVE"]
 
   if live
-    users = User.all
+    users = User.select { |u| u.email != nil }
   else
     users = User.where(admin: true)
   end
