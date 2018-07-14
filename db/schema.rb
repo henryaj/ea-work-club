@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315174139) do
+ActiveRecord::Schema.define(version: 20180714192011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180315174139) do
     t.float "latitude"
     t.float "longitude"
     t.boolean "remote"
+    t.datetime "renewed_at"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -79,6 +80,7 @@ ActiveRecord::Schema.define(version: 20180315174139) do
     t.integer "upvotes"
     t.integer "budget"
     t.bigint "category_id"
+    t.datetime "renewed_at"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

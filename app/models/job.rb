@@ -46,7 +46,23 @@ class Job < ApplicationRecord
     created_at >= Date.today - 7
   end
 
+  def needs_renewal_soon?
+    return !expired? && (last_renewed_ago_days > 60)
+  end
+
+  def last_renewed_ago_days
+    ((Time.current - last_renewed_date) / 1.day).round
+  end
+
+  def renew!
+    update(renewed_at: Time.current)
+  end
+
   private
+
+  def last_renewed_date
+    renewed_at.present? ? renewed_at : created_at
+  end
 
   def format(string)
     Kramdown::Document.new(string).to_html

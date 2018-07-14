@@ -22,7 +22,23 @@ class Project < ApplicationRecord
     false # TODO
   end
 
+  def renew!
+    update(renewed_at: Time.current)
+  end
+
+  def needs_renewal_soon?
+    return !expired? && (last_renewed_ago_days > 60)
+  end
+
+  def last_renewed_ago_days
+    ((Time.current - last_renewed_date) / 1.day).round
+  end
+
   private
+
+  def last_renewed_date
+    renewed_at.present? ? renewed_at : created_at
+  end
 
   def format(string)
     Kramdown::Document.new(string).to_html

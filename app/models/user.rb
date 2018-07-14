@@ -16,4 +16,12 @@ class User < ApplicationRecord
   def subscribed?
     subscription.present?
   end
+  
+  def jobs_needing_renewal
+    jobs.select { |i| i.needs_renewal_soon? }
+  end
+
+  def projects_needing_renewal
+    projects.select { |i| i.needs_renewal_soon? }
+  end
 end

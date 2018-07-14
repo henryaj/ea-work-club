@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :upvote, :renew]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :upvote]
   before_action :check_owner_logged_in, only: [:edit, :update, :destroy]
 
@@ -72,7 +72,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # POST /projects/1/upvote
+  # GET /projects/1/upvote
   def upvote
     # if user has already voted, remove that vote
     if current_user_db_record.voted_for?(@project)
@@ -82,6 +82,13 @@ class ProjectsController < ApplicationController
     end
 
     redirect_back(fallback_location: root_path)
+  end
+
+  # GET /projects/1/renew
+  def renew
+    @project.renew!
+
+    redirect_to @project, notice: 'Project was successfully renewed.'
   end
 
   private

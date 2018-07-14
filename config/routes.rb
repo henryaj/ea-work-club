@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :projects
   resources :jobs
 
+  get "/projects/:id/upvote" => "projects#upvote"
+
+  get "/projects/:id/renew" => "projects#renew"
+  get "/jobs/:id/renew" => "jobs#renew"
+
   resources :categories do
     resources :projects
     resources :jobs
@@ -23,10 +28,6 @@ Rails.application.routes.draw do
   get "/auth/oauth2/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
   get "/logout" => "logout#logout"
-
-  get "/projects/:id/upvote" => "projects#upvote"
-
-
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end

@@ -3,10 +3,6 @@ class UserMailer < ApplicationMailer
           reply_to: "Henry Stanley <henry@henrystanley.com>"
 
   def welcome_email(user)
-    formatted_subscription_names = user.all_subscription_names.map do |s|
-      "<li>" + s + "</li>"
-    end
-
     @unsubscribe_url = "http://www.eawork.club/unsubscribe"
     @header = "Thanks for signing up for EA Work Club alerts"
     @body_paragraphs = [
@@ -58,7 +54,6 @@ class UserMailer < ApplicationMailer
     mail(to: user.email, subject: @subject)
   end
 
-
   def listing_update_email_since(user, date_since)
     subscription = user.subscription
     @categories = subscription.categories
@@ -89,6 +84,27 @@ class UserMailer < ApplicationMailer
       "All the best,",
       "EA Work Club"
     ]
+
+    mail(to: user.email, subject: @subject)
+  end
+
+  def listing_renewal_reminder(user, listing)
+    # see if the user has any listings
+    # for each listing, if it is unexpired
+    # AND if it has been up for > 2 months
+    # send an email with a link to renew it
+    @unsubscribe_url = "http://www.eawork.club/unsubscribe"
+    @closing_paragraphs = []
+
+    @header = "EA Work Club - listing expiring soon"
+    @subject = "EA Work Club - listing expiring soon"
+
+    @body_paragraphs = [
+      "Your listing \"#{listing.title}\" has been on EA Work Club for #{listing.last_renewed_ago_days} days and will expire next week.",
+      "If you want to keep it live on EA Work Club, please click the link below. Otherwise, please ignore this email and your listing will be archived."
+    ]
+
+    @renewal_link = url_for(listing) + "/renew"
 
     mail(to: user.email, subject: @subject)
   end
