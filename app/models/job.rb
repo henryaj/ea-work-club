@@ -10,15 +10,17 @@ class Job < ApplicationRecord
 
   enum time_commitment: [:not_specified, :part_time, :full_time]
 
-  def self.displayable
+  def self.displayable_newest_first
+    all.order(created_at: :desc).reject(&:expired?)
+  end
+
+  def self.displayable_sorted_by_expiry
     all.order(expiry_date: :asc).reject(&:expired?)
   end
 
   def expired?
-    if expiry_date
-      return expiry_date.past?
-    end
-
+    return true if last_renewed_ago_days > 70
+    return expiry_date.past? if expiry_date
     false
   end
 
@@ -51,7 +53,7 @@ class Job < ApplicationRecord
   end
 
   def needs_renewal_soon?
-    return !expired? && (last_renewed_ago_days > 60)
+    return !expiry_date.past? && (last_renewed_ago_days > 60)
   end
 
   def last_renewed_ago_days

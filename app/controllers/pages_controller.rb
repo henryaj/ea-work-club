@@ -1,11 +1,8 @@
 class PagesController < ApplicationController
   def index
     @categories = Category.all_except_empty
-    @jobs = Job.order(created_at: :desc).reject(&:expired?).first(10)
-
-    date_sorted_projects = Project.all.first(20)
-
-    @projects = date_sorted_projects.reverse
+    @jobs = Job.displayable_newest_first.first(10)
+    @projects = Project.displayable_newest_first.first(20)
   end
 
   def about

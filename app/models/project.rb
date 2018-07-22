@@ -6,6 +6,18 @@ class Project < ApplicationRecord
   include PgSearch
   multisearchable against: %i(title organisation description owner_name)
 
+  def self.displayable
+    all.reject(&:expired?)
+  end
+
+  def self.displayable_sorted_by_votes
+    all.reject(&:expired?).sort_by {|p| p.votes_for.size }.reverse
+  end
+
+  def self.displayable_newest_first
+    all.order(created_at: :desc).reject(&:expired?)
+  end
+
   def preview
     Nokogiri::HTML(pretty_description).text.truncate(85)
   end
@@ -19,7 +31,8 @@ class Project < ApplicationRecord
   end
 
   def expired?
-    false # TODO
+    last_renewed_ago_days > 70
+    # TODO actual expiry dates
   end
 
   def renew!
@@ -27,7 +40,7 @@ class Project < ApplicationRecord
   end
 
   def needs_renewal_soon?
-    return !expired? && (last_renewed_ago_days > 60)
+    last_renewed_ago_days > 60
   end
 
   def last_renewed_ago_days

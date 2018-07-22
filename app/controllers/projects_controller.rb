@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all.sort_by {|p| p.votes_for.size }.reverse
+    @projects = Project.displayable_sorted_by_votes
   end
 
   # GET /projects/1

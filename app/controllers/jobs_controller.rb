@@ -14,9 +14,9 @@ class JobsController < ApplicationController
 
     if params[:remote]
       @title = "Remote Jobs"
-      @jobs = Job.displayable.select(&:remote?)
+      @jobs = Job.displayable_sorted_by_expiry.select(&:remote?)
     else
-      @jobs = Job.displayable
+      @jobs = Job.displayable_sorted_by_expiry
     end
   end
 
