@@ -20,7 +20,11 @@ class Job < ApplicationRecord
 
   def expired?
     return true if last_renewed_ago_days > 70
-    return expiry_date.past? if expiry_date
+
+    if expiry_date
+      return expiry_date.past?
+    end
+
     false
   end
 
