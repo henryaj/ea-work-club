@@ -57,7 +57,11 @@ class Job < ApplicationRecord
   end
 
   def needs_renewal_soon?
-    return !expiry_date.past? && (last_renewed_ago_days > 60)
+    if expiry_date
+      return false if expiry_date.past?
+    end
+
+    return last_renewed_ago_days > 60
   end
 
   def last_renewed_ago_days
