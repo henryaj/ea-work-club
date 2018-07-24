@@ -1,4 +1,6 @@
 # EA Work Club
+[![Build Status](https://travis-ci.org/henryaj/ea-work-club.svg?branch=master)](https://travis-ci.org/henryaj/ea-work-club)
+
 **High-impact jobs and side projects for effective altruists.**
 
 ## About
