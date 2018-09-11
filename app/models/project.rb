@@ -40,7 +40,7 @@ class Project < ApplicationRecord
   end
 
   def needs_renewal_soon?
-    last_renewed_ago_days > 60
+    last_renewed_ago_days > 60 && last_renewed_ago_days < 68
   end
 
   def last_renewed_ago_days
