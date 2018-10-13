@@ -46,6 +46,8 @@ module Auth0Helper
     return user
   end
 
+  alias current_user current_user_db_record
+
   def authenticate_user!
     if user_signed_in?
       @current_user = session[:userinfo]
