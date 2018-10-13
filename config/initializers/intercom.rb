@@ -9,8 +9,8 @@ IntercomRails.config do |config|
   # == Intercom secret key
   # This is required to enable Identity Verification, you can find it on your Setup
   # guide in the "Identity Verification" step.
-  #
-  # config.api_secret = "..."
+
+  config.api_secret = Rails.application.secrets.intercom_secure_mode_secret_key
 
   # == Enabled Environments
   # Which environments is auto inclusion of the Javascript enabled for
@@ -50,11 +50,10 @@ IntercomRails.config do |config|
   # A hash of additional data you wish to send about your users.
   # You can provide either a method name which will be sent to the current
   # user object, or a Proc which will be passed the current user.
-  #
-  # config.user.custom_data = {
-  #   :plan => Proc.new { |current_user| current_user.plan.name },
-  #   :favorite_color => :favorite_color
-  # }
+
+  config.user.custom_data = {
+    is_subscribed: proc { |current_user| current_user.subscribed? }
+  }
 
   # == Current company method/variable
   # The method/variable that contains the current company for the current user,
