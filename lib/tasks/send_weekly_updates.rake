@@ -12,7 +12,11 @@ task :send_weekly_updates => :environment do
 
     subscribed_users.each do |u|
       logger.info("Sending weekly update to #{u.email}")
-      UserMailer.weekly_listing_update_email(u).deliver_now
+      begin
+        UserMailer.weekly_listing_update_email(u).deliver_now
+      rescue => e
+        Raven.capture_exception(exception)
+      end
     end
   else
     User.where(admin: true).each do |u|
