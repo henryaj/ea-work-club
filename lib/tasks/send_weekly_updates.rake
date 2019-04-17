@@ -15,7 +15,7 @@ task :send_weekly_updates => :environment do
       begin
         UserMailer.weekly_listing_update_email(u).deliver_now
       rescue => e
-        Raven.capture_exception(exception)
+        Raven.capture_exception(e)
       end
     end
   else
