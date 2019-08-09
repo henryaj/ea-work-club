@@ -85,7 +85,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    intercom-rails (0.4.0)
+    intercom-rails (0.4.1)
       activesupport (> 3.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
