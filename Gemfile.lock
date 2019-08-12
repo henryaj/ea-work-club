@@ -163,7 +163,7 @@ GEM
       rack (>= 1.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack-tracker (1.8.0)
+    rack-tracker (1.11.1)
       activesupport (>= 3.0)
       rack (>= 1.4)
       tilt (>= 1.4)
