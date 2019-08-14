@@ -103,7 +103,7 @@ class UserMailer < ApplicationMailer
 
     @body_paragraphs = [
       "Hi!",
-      "We've got a new policy at EA Work Club to make sure all the listings are as fresh as can be – we'll be expiring listings after 60 days.",
+      "To keep listings current and relevant, we hide listings on EA Work Club that are more than 60 days old.",
       "The following listings have been up for longer than 60 days. Click on the 'Renew' link beside any listing to renew it for another 60 days."
     ]
 
