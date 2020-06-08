@@ -78,7 +78,7 @@ GEM
     ffi (1.10.0)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
-    geocoder (1.4.9)
+    geocoder (1.6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -299,7 +299,7 @@ DEPENDENCIES
   byebug
   capybara (~> 3.28)
   coffee-rails (~> 4.2)
-  geocoder (~> 1.4.6)
+  geocoder (~> 1.6.1)
   intercom-rails
   jbuilder (~> 2.9)
   kramdown
