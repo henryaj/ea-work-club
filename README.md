@@ -11,6 +11,14 @@ A basic CRUD app, with _Jobs_ (job listings at EA orgs) and _Projects_ (things E
 
 Check the [projects](https://github.com/henryaj/ea-work-club/projects) for work that's in progress or needs doing. Feel free to add your own feature requests!
 
+## In production
+
+Requires Auth0 and a postgres instance.
+
+Run `rails db:sessions:trim` daily to drop old sessions from the DB.
+
+Run `rake send_weekly_updates` and `rake send_listing_renewal_reminders` every Sunday.
+
 ### Setting up
 
 1. Clone the repo locally
