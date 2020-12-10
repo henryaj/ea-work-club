@@ -161,7 +161,7 @@ GEM
       activerecord (>= 4.2)
       activesupport (>= 4.2)
     public_suffix (3.1.1)
-    puma (4.3.5)
+    puma (4.3.7)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-pjax (1.0.0)
@@ -293,6 +293,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-20
 
 DEPENDENCIES
   acts_as_votable (~> 0.11.1)
@@ -309,7 +310,7 @@ DEPENDENCIES
   omniauth-auth0 (~> 2.2.0)
   pg
   pg_search
-  puma (~> 4.3)
+  puma (~> 4.3.6)
   rack-tracker
   rails (~> 5.2.3)
   rails_admin (~> 1.3.0)
@@ -328,4 +329,4 @@ RUBY VERSION
    ruby 2.4.5p335
 
 BUNDLED WITH
-   2.1.4
+   2.2.0
