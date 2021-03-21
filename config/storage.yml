@@ -1,0 +1,15 @@
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+backblaze:
+  service: Backblaze
+  bucket_name: <%= ENV.fetch("BACKBLAZE_BUCKET_NAME") %>
+  bucket_id: <%= ENV.fetch("BACKBLAZE_BUCKET_ID") %>
+  key_id: <%= ENV.fetch("BACKBLAZE_KEY_ID") %>
+  key_token: <%= ENV.fetch("BACKBLAZE_KEY_TOKEN") %>
+
