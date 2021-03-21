@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  *= require bootstrap
+ *= require trix
  */
+
+@import "./actiontext.scss";
 
 #masthead {
   padding-top: 5rem;

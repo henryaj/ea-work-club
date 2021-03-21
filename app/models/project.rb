@@ -3,6 +3,8 @@ class Project < ApplicationRecord
   belongs_to :category
   acts_as_votable
 
+  has_rich_text :content
+
   include PgSearch
   multisearchable against: %i(title organisation description owner_name)
 

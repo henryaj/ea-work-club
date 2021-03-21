@@ -2,6 +2,8 @@ class Job < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  has_rich_text :content
+
   geocoded_by :location
   after_validation :geocode
 

@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy, :upvote, :renew]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :check_owner_logged_in, only: [:edit, :update, :destroy, :renew]
+  # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  # before_action :check_owner_logged_in, only: [:edit, :update, :destroy, :renew]
 
   # GET /jobs
   # GET /jobs.json

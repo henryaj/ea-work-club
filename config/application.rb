@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module EffectiveJobs
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    config.load_defaults 5.0
     config.exceptions_app = self.routes
     config.action_mailer.default_url_options = { host: 'www.eawork.club' }
 

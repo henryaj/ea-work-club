@@ -8,7 +8,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4.4'
+gem 'rails', '~> 6.1'
 
 gem 'pg'
 # Use Puma as the app server
@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.9'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'activerecord-session_store'
+
+gem 'trix-rails', require: 'trix'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -61,7 +63,7 @@ gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-auth0', '~> 2.2.0'
 gem 'kramdown'
 gem 'sentry-raven'
-gem 'rails_admin', '~> 1.4.3'
+gem 'rails_admin'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'rack-tracker'

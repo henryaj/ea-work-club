@@ -16,4 +16,5 @@
 //= require popper
 //= require bootstrap
 //= require subscription
+//= require trix
 //= require_tree .
