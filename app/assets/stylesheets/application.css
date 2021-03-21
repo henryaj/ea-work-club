@@ -16,8 +16,6 @@
  *= require trix
  */
 
-@import "./actiontext.scss";
-
 #masthead {
   padding-top: 5rem;
   padding-bottom: 5rem;
