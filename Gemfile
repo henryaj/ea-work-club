@@ -32,10 +32,9 @@ gem 'jbuilder', '~> 2.9'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'activerecord-session_store'
-
 gem 'trix-rails', require: 'trix'
-
 gem 'activestorage-backblaze'
+gem 'webpacker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
