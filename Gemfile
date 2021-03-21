@@ -35,6 +35,7 @@ gem 'activerecord-session_store'
 gem 'trix-rails', require: 'trix'
 gem 'activestorage-backblaze'
 gem 'webpacker'
+gem 'impressionist'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

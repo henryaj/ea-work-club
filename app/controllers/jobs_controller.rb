@@ -3,6 +3,8 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :check_owner_logged_in, only: [:edit, :update, :destroy, :renew]
 
+  impressionist actions: [:show]
+
   # GET /jobs
   # GET /jobs.json
   def index
