@@ -47,7 +47,9 @@ class Job < ApplicationRecord
   end
 
   def pretty_description
-    format(description).html_safe
+    return format(description).html_safe if description
+
+    content.to_s
   end
 
   def pretty_time_commitment

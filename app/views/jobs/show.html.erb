@@ -26,9 +26,15 @@
         <p><mark>Applications for this job close soon.</mark></p>
         <% end %>
       <% end %>
+      <% if @job.description? %>
       <p>
         <%= sanitize @job.pretty_description %>
       </p>
+      <% else %>
+        <div class="pb-5">
+          <%= @job.content %>
+        </div>
+      <% end %>
       <p>
         <strong>Time commitment:</strong>
         <%= @job.pretty_time_commitment %>

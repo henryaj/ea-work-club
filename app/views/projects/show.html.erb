@@ -12,9 +12,15 @@
 <div class="container-fluid">
   <div class="row justify-content-center page-section">
     <div class="col-md-6">
+      <% if @project.description? %>
       <p>
         <%= sanitize @project.pretty_description %>
       </p>
+      <% else %>
+        <div class="pb-5">
+          <%= @project.content %>
+        </div>
+      <% end %>
 
       <% if @project.organisation.present? %>
       <p>

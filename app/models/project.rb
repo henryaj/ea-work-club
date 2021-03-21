@@ -25,7 +25,9 @@ class Project < ApplicationRecord
   end
 
   def pretty_description
-    format(description).html_safe
+    return format(description).html_safe if description
+
+    content.to_s
   end
 
   def created_in_last_week?

@@ -102,7 +102,8 @@ class JobsController < ApplicationController
     params.require(:job).permit(
       :title,
       :location,
-      :description,
+      :description, # old, text-only description. We include it to allow display and editing of old listings
+      :content,     # new, Trix rich-text description
       :time_commitment,
       :organisation,
       :url,
