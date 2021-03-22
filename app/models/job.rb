@@ -10,13 +10,7 @@ class Job < ApplicationRecord
   include PgSearch
   multisearchable against: %i(title organisation description owner_name)
 
-  is_impressionable
-
   enum time_commitment: [:not_specified, :part_time, :full_time]
-
-  def views
-    impressionist_count(filter: :ip_address)
-  end
 
   def self.displayable_newest_first
     all.order(created_at: :desc).reject(&:expired?)
@@ -28,7 +22,10 @@ class Job < ApplicationRecord
 
   def expired?
     return true if last_renewed_ago_days > 70
-    return expiry_date.past?  if expiry_date
+
+    if expiry_date
+      return expiry_date.past?
+    end
 
     false
   end
@@ -38,7 +35,9 @@ class Job < ApplicationRecord
   end
 
   def expires_soon?
-    return expiry_date.days_since(-7).past?  if expiry_date
+    if expiry_date
+      return expiry_date.days_since(-7).past?
+    end
 
     false
   end
@@ -66,7 +65,7 @@ class Job < ApplicationRecord
       return false if expiry_date.past?
     end
 
-    last_renewed_ago_days > 60 && last_renewed_ago_days < 68
+    return last_renewed_ago_days > 60 && last_renewed_ago_days < 68
   end
 
   def last_renewed_ago_days
