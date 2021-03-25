@@ -9,22 +9,28 @@
             <div class="card-body">
               <h4 class="card-title"><%= category.name %></h4>
               <% if category.description.present? %>
-              <p class="card-text"><%= category.description.split('.').first %></p>
+                <p class="card-text"><%= category.description.split('.').first %></p>
               <% end %>
-              <h6><%= link_to 'View jobs', category_jobs_url(category_id: category.id), class: "card-link" %>
-                <% if category.jobs.active.count > 0 %>
+
+              <% if category.jobs.active.count > 0 %>
+                <h6><%= link_to 'View jobs', category_jobs_url(category_id: category.id), class: "card-link" %>
                 <span class="badge badge-pill badge-primary">
                   <%= category.jobs.active.count %>
                 </span>
-                <% end %>
-              </h6>
-              <h6><%= link_to 'View projects', category_projects_url(category_id: category.id), class: "card-link" %>
-                <% if category.projects.active.count > 0 %>
+                </h6>
+              <% else %>
+                <h6 class="text-muted">No jobs</h6>
+              <% end %>
+
+              <% if category.projects.active.count > 0 %>
+                <h6><%= link_to 'View projects', category_projects_url(category_id: category.id), class: "card-link" %>
                 <span class="badge badge-pill badge-primary">
                   <%= category.projects.active.count %>
                 </span>
-                <% end %>
-              </h6>
+                </h6>
+              <% else %>
+                <h6 class="text-muted">No projects</h6>
+              <% end %>
             </div>
           </div>
         <% end %>
