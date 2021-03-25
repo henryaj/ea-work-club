@@ -20,6 +20,10 @@ class Project < ApplicationRecord
     all.order(created_at: :desc).reject(&:expired?)
   end
 
+  def self.active
+    all.reject(&:expired?)
+  end
+
   def preview
     Nokogiri::HTML(pretty_description).text.truncate(85)
   end

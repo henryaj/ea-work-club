@@ -12,16 +12,16 @@
               <p class="card-text"><%= category.description.split('.').first %></p>
               <% end %>
               <h6><%= link_to 'View jobs', category_jobs_url(category_id: category.id), class: "card-link" %>
-                <% if category.jobs.count > 0 %>
+                <% if category.jobs.active.count > 0 %>
                 <span class="badge badge-pill badge-primary">
-                  <%= category.jobs.count %>
+                  <%= category.jobs.active.count %>
                 </span>
                 <% end %>
               </h6>
               <h6><%= link_to 'View projects', category_projects_url(category_id: category.id), class: "card-link" %>
-                <% if category.projects.count > 0 %>
+                <% if category.projects.active.count > 0 %>
                 <span class="badge badge-pill badge-primary">
-                  <%= category.projects.count %>
+                  <%= category.projects.active.count %>
                 </span>
                 <% end %>
               </h6>

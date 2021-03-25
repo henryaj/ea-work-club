@@ -20,6 +20,10 @@ class Job < ApplicationRecord
     all.order(expiry_date: :asc).reject(&:expired?)
   end
 
+  def self.active
+    all.reject(&:expired?)
+  end
+
   def expired?
     return true if last_renewed_ago_days > 70
 
