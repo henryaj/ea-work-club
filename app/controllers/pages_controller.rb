@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def about
   end
 
+  def privacy
+  end
+
   def search
     @query = html_escape(params["query"])
     results = PgSearch.multisearch(@query)
