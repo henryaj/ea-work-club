@@ -185,7 +185,7 @@ GEM
     multipart-post (2.1.1)
     nested_form (0.3.2)
     netrc (0.11.0)
-    nio4r (2.5.7)
+    nio4r (2.5.8)
     nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
@@ -210,7 +210,7 @@ GEM
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     public_suffix (4.0.6)
-    puma (4.3.8)
+    puma (4.3.12)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -386,7 +386,7 @@ DEPENDENCIES
   omniauth-auth0 (~> 2.2.0)
   pg
   pg_search
-  puma (~> 4.3.8)
+  puma (~> 4.3.12)
   rack-tracker
   rails (~> 6.1)
   rails_admin
