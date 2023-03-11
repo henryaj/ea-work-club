@@ -72,3 +72,6 @@ gem 'geocoder', '~> 1.6.1'
 gem 'pg_search'
 gem 'intercom-rails'
 gem 'lograge'
+
+gem "sidekiq", "~> 6.5"
+gem "sidekiq-cron", "~> 1.9"
