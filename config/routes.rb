@@ -1,3 +1,6 @@
+require "sidekiq/web"
+require "sidekiq/cron/web"
+
 Rails.application.routes.draw do
   match "/500", :to => "errors#internal_server_error", :via => :all
 
@@ -31,4 +34,9 @@ Rails.application.routes.draw do
   get "/logout" => "logout#logout"
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => "/sidekiq"
+  end
+
 end
