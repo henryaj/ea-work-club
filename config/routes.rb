@@ -35,8 +35,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  authenticate :user, ->(user) { user.admin? } do
+  constraints lambda { |request| request.env["warden"].authenticate? and request.env['warden'].user.admin? } do
     mount Sidekiq::Web => "/sidekiq"
   end
-
 end
